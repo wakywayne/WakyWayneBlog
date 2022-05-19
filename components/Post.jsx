@@ -10,7 +10,7 @@ export default function Post({ post }) {
     return (
         <div className=' w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6'>
             <Image
-                src={`/../public${post.frontmatter.cover_image}`}
+                src={`${post.frontmatter.cover_image}`}
                 alt={post.frontmatter.title}
                 height={420}
                 width={600}
