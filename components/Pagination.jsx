@@ -17,8 +17,8 @@ export default function Pagination({ currentPage, numPages }) {
         <div className=' flex pl-0 list-none my-2'>
             {!isFirst && (
                 <Link href={prevPage}>
-                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200
-                    text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer'>Previous</li>
+                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-gray-300 mr-1 hover:bg-gray-200
+                    text-gray-800 cursor-pointer'>Previous</li>
                 </Link>
 
             )}
@@ -32,7 +32,7 @@ export default function Pagination({ currentPage, numPages }) {
             {!isLast && (
                 <Link href={nextPage}>
                     <li className=' relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200
-                    text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer'>Next</li>
+                     cursor-pointer'>Next</li>
                 </Link>
 
             )}
