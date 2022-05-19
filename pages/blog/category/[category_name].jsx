@@ -1,47 +1,53 @@
-import Layout from "@/components/Layout"
-import fs from "fs"
-import path from "path"
-import Post from "@/components/Post"
-import Link from "next/link"
-import matter from "gray-matter"
-import { sortByDate } from "@/utils/index"
-import { getPosts } from "@/lib/posts"
+import fs from 'fs'
+import path from 'path'
+import Link from 'next/link'
+import Layout from '@/components/Layout'
+import Post from '@/components/Post'
+import CategoryLists from '@/components/CategoryLists'
+import matter from 'gray-matter'
+import { getPosts } from '@/lib/posts'
 
-export default function CategoryBlogPage({ posts, categoryName }) {
-
+export default function CategoryBlogPage({ posts, categoryName, categories }) {
     return (
         <Layout>
-            <h1 className=" text-5xl border-b-4 mb-2 p-5 font-bold">Posts in {categoryName}</h1>
+            <div className='flex justify-between'>
+                <div className='w-3/4 mr-10'>
+                    <h1 className='text-5xl border-b-4 p-5 font-bold'>
+                        Posts in {categoryName}
+                    </h1>
 
-            <div className=" grid md:grid-col-2 lg:grid-cols-3 gap-5">
-                {posts.map((post) => (
-                    <Post key={post.id} post={post} />
-                ))}
+                    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                        {posts.map((post, index) => (
+                            <Post key={index} post={post} />
+                        ))}
+                    </div>
+                </div>
+
+                <div className='w-1/4'>
+                    <CategoryLists categories={categories} />
+                </div>
             </div>
-            <Link href='/blog'>
-                <a className='block text-center border border-blue-500 text-blue-800 rounded-md py-4 my-5 transition duration-500 ease select-none hover:text-white hover:bg-green-700 focus:outline-none focus:shadow-outline w-full'>
-                    All Posts
-                </a>
-            </Link>
         </Layout>
     )
 }
 
 export async function getStaticPaths() {
-    const files = fs.readdirSync(path.join('posts'));
+    const files = fs.readdirSync(path.join('posts'))
 
-    const categories = files.map(filename => {
-        const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf8');
+    const categories = files.map((filename) => {
+        const markdownWithMeta = fs.readFileSync(
+            path.join('posts', filename),
+            'utf-8'
+        )
 
-        const { data: frontmatter } = matter(markdownWithMeta);
+        const { data: frontmatter } = matter(markdownWithMeta)
 
-        return frontmatter.category.toLowerCase();
+        return frontmatter.category.toLowerCase()
+    })
 
-    });
-
-    const paths = categories.map(category => {
-        return { params: { category_name: category } }
-    });
+    const paths = categories.map((category) => ({
+        params: { category_name: category },
+    }))
 
     return {
         paths,
@@ -49,15 +55,14 @@ export async function getStaticPaths() {
     }
 }
 
-
 export async function getStaticProps({ params: { category_name } }) {
     const files = fs.readdirSync(path.join('posts'))
 
     const posts = getPosts()
 
     // Get categories for sidebar
-    // const categories = posts.map((post) => post.frontmatter.category)
-    // const uniqueCategories = [...new Set(categories)]
+    const categories = posts.map((post) => post.frontmatter.category)
+    const uniqueCategories = [...new Set(categories)]
 
     // Filter posts by category
     const categoryPosts = posts.filter(
@@ -68,7 +73,7 @@ export async function getStaticProps({ params: { category_name } }) {
         props: {
             posts: categoryPosts,
             categoryName: category_name,
-            // categories: uniqueCategories,
+            categories: uniqueCategories,
         },
     }
 }
