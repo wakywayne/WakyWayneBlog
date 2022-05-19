@@ -17,22 +17,22 @@ export default function Post({ post }) {
                 className='mb-4 rounded'
             />
             <div className="flex justify-between items-center">
-                <span className=" font-normal text-green-600">{post.frontmatter.date}</span>
+                <span className="font-normal text-green-600">{post.frontmatter.date}</span>
 
                 <CategoryLabel>{post.frontmatter.category}</CategoryLabel>
             </div>
 
             <div className="mt-2">
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/blog/project/${post.slug}`}>
                     <a className="text-2xl font-bold text-blue-900 hover:underline sm:underline md:no-underline">{post.frontmatter.title}</a>
                 </Link>
-                <p className="mt-2 text-black-900">
+                <p className="mt-2 text-blue-600">
                     {post.frontmatter.excerpt}
                 </p>
             </div>
 
             <div className="flex justify-between items-center">
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/blog/project/${post.slug}`}>
                     <a className="text-blue-700 hover:text-blue-700 hover:underline mt-3" >Read More</a>
                 </Link>
 

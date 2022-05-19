@@ -1,22 +1,22 @@
 import Layout from "@/components/Layout"
-import Post from "@/components/Post"
+import Project from "@/components/Project"
 import Link from "next/link"
-import { getPosts } from "@/lib/posts"
+import { getProjects } from "@/lib/posts"
 
-export default function Home({ posts }) {
+export default function Home({ projects }) {
 
   return (
     <Layout>
-      <h1 className=" text-5xl border-b-4 mb-2 p-5 font-bold">Latest Posts</h1>
+      <h1 className=" text-5xl border-b-4 mb-2 p-5 font-bold">Projects I&apos;ve worked on</h1>
 
       <div className=" grid md:grid-col-2 lg:grid-cols-3 gap-5">
-        {posts.map((post) => (
-          <Post key={post.id} post={post} />
+        {projects.map((post) => (
+          <Project key={post.id} post={post} />
         ))}
       </div>
       <Link href='/blog'>
-        <a className='block text-center border border-gray-500 text-gray-800 rounded-md py-4 my-5 transition duration-500 ease select-none hover:text-white hover:bg-red-700 focus:outline-none focus:shadow-outline w-full'>
-          All Posts
+        <a className='block text-center border border-blue-500 text-blue-800 rounded-md py-4 my-5 transition duration-500 ease select-none hover:text-white hover:bg-green-700 focus:outline-none focus:shadow-outline w-full'>
+          Blog articles that I find useful
         </a>
       </Link>
     </Layout>
@@ -27,7 +27,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: getPosts().slice(0, 6),
+      projects: getProjects(),
     },
   }
 }

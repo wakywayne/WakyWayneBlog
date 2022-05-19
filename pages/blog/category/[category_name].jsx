@@ -19,7 +19,7 @@ export default function CategoryBlogPage({ posts, categoryName }) {
                 ))}
             </div>
             <Link href='/blog'>
-                <a className='block text-center border border-gray-500 text-gray-800 rounded-md py-4 my-5 transition duration-500 ease select-none hover:text-white hover:bg-red-700 focus:outline-none focus:shadow-outline w-full'>
+                <a className='block text-center border border-blue-500 text-blue-800 rounded-md py-4 my-5 transition duration-500 ease select-none hover:text-white hover:bg-green-700 focus:outline-none focus:shadow-outline w-full'>
                     All Posts
                 </a>
             </Link>

@@ -17,21 +17,21 @@ export default function Pagination({ currentPage, numPages }) {
         <div className=' flex pl-0 list-none my-2'>
             {!isFirst && (
                 <Link href={prevPage}>
-                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-gray-300 mr-1 hover:bg-gray-200
-                    text-gray-800 cursor-pointer'>Previous</li>
+                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-blue-300 mr-1 hover:bg-green-200
+                    text-blue-800 cursor-pointer'>Previous</li>
                 </Link>
 
             )}
             {Array.from({ length: numPages }, (_, i) => (
                 <Link href={`/blog/page/${i + 1}`} key={`page-${i}`}>
-                    <li className='relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer'>
+                    <li className='relative block py-2 px-3 leading-tight bg-white border border-blue-300 text-blue-800 mr-1 hover:bg-green-200 cursor-pointer'>
                         {i + 1}
                     </li>
                 </Link>
             ))}
             {!isLast && (
                 <Link href={nextPage}>
-                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200
+                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-blue-300 text-blue-800 mr-1 hover:bg-green-200
                      cursor-pointer'>Next</li>
                 </Link>
 

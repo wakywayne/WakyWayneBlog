@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 import { marked } from 'marked'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import CategoryLabel from '@/components/CategoryLabel'
+// import CategoryLabel from '@/components/CategoryLabel'
 
 export default function PostPage({ frontmatter: { title, category, date, cover_image, author, author_image }, content, slug }) {
 
@@ -13,13 +13,13 @@ export default function PostPage({ frontmatter: { title, category, date, cover_i
 
     return (
         <Layout title={title}>
-            <Link href='/blog'>Go Back</Link>
+            <Link href='/'>Go Back</Link>
             <div className=' w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6'>
                 <div className=' flex justify-between items-center mt-4'>
                     <h1 className='text-5xl mb-7'>
                         {title}
                     </h1>
-                    <CategoryLabel>{category}</CategoryLabel>
+                    {/* <CategoryLabel>{category}</CategoryLabel> */}
                 </div>
                 <img src={cover_image} alt="" className=' w-full rounded' />
 
@@ -44,7 +44,7 @@ export default function PostPage({ frontmatter: { title, category, date, cover_i
 }
 
 export async function getStaticPaths() {
-    const files = fs.readdirSync(path.join('posts'));
+    const files = fs.readdirSync(path.join('projects'));
 
     const paths = files.map(filename => {
         const slug = filename.replace('.md', '');
@@ -64,7 +64,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     const slug = params.slug;
 
-    const markdownWithMeta = fs.readFileSync(path.join('posts', `${slug}.md`), 'utf8');
+    const markdownWithMeta = fs.readFileSync(path.join('projects', `${slug}.md`), 'utf8');
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
 
