@@ -26,5 +26,5 @@ author_image: '/images/dynamicwebsiteimages/CoachWaynesPrivates.JPG'
 >        - ##### This is a large project I have been working on that was mostly built by my boss Jason Layton there is a separate article talking about this.
 
  ## One of the coolest features of this site is the custom schedule that I can easily update and is scrollable on mobile
-![Our Schedule](../public/images/dynamicwebsiteimages/schedule.png)
+![Our Schedule](/images/dynamicwebsiteimages/schedule.png)
 

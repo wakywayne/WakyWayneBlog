@@ -2,7 +2,7 @@
 title: 'WaynesWildWorld.com'
 date: 'January 20, 2022'
 excerpt: 'A static website made with html css, and bootstrap'
-cover_image: '/images/wayneswildworldImages/coverImage'
+cover_image: '/images/wayneswildworldImages/coverImage.png'
 category: ''
 author: 'WayneCarl Barker'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
@@ -13,15 +13,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > - #### Rotating pictures
 > - #### Rolling word sets
 > - **Video thumb nails that open up a youtube modal**
->      > ![Modal Image](../public/images/wayneswildworldImages/howModalWorks.png "How The Modal Works")
+>      > ![Modal Image](/images/wayneswildworldImages/howModalWorks.png "How The Modal Works")
 > - #### Expandable/ drop down cards
 > - #### Multiple design icons
 > 
 > ## One of the coolest features of this site is the photo library
 > > #### *This photo library is a gallery of photos from our past adventures displayed in a well layed out grid. That is not all however, if you click on any of the pictures you will see a slide show appear that you can click through and view the images on at a time.*
-> ![Photo Library](../public/images/wayneswildworldImages/photoLibrary.png "The Photo Library Page")
+> ![Photo Library](/images/wayneswildworldImages/photoLibrary.png "The Photo Library Page")
 > 
-> ![Photo Library](../public/images/wayneswildworldImages/photoLibrarySlides.png "How The Slides Works")
+> ![Photo Library](/images/wayneswildworldImages/photoLibrarySlides.png "How The Slides Works")
 
 
 ## *In addition to this their is also an entirely separate project that is built into this one called...*
