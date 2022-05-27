@@ -8,7 +8,7 @@ author: 'WayneCarl Barker'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
-# Waynes Wild World
+# [Waynes Wild World](https://wayneswildworld.com/)
 > ### The purpose of this project is to build a group of people who like to travel or just get out of their house. This sight has multiple pages with several different functionallities such as:
 > - #### Rotating pictures
 > - #### Rolling word sets

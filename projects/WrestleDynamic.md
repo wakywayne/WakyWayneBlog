@@ -8,7 +8,7 @@ author: 'WayneCarl Barker'
 author_image: '/images/dynamicwebsiteimages/CoachWaynesPrivates.JPG'
 ---
 
-# Wrestle Dynamic
+# [Wrestle Dynamic](http://wrestledynamic.com/)
 > #### Wrestle dynamic is where I where I have been working as a wrestling coach since _2018_. This place is like my home away from home and I love doing private lessons with my wrestlers. I built this website so the business would have a presence on the internet and our customers could stay in the loop about everything going on at the club
 
 ## This project includes:
