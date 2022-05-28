@@ -1,11 +1,11 @@
 ---
 title: 'WellRunTournaments.com'
 date: 'March 25, 2022'
-excerpt: 'A fullstack application with a user interface for the backend'
-cover_image: '/images/posts/img3.jpg'
+excerpt: 'A fullstack application with a backend equipped with a frontend user interface'
+cover_image: '/images/wellruntournamentsImages/temporaryHomePage.png'
 category: ''
 author: 'WayneCarl Barker'
-author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
+author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->
