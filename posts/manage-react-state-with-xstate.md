@@ -3,7 +3,7 @@ title: 'Manage React State With XState'
 date: 'May 15, 2021'
 excerpt: 'The most straightforward way of using XState with React is through local component state'
 cover_image: '/images/posts/img8.jpg'
-category: 'JavaScript'
+category: 'Frontend'
 author: 'Sam Smith'
 author_image: 'https://randomuser.me/api/portraits/men/18.jpg'
 ---
