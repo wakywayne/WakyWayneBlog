@@ -4,7 +4,7 @@ date: 'October 20, 2021'
 excerpt: 'A static website made with html css, and bootstrap'
 cover_image: '/images/dynamicwebsiteimages/homePage.png'
 category: ''
-author: 'WayneCarl Barker'
+author: 'Wrestle Dynamic Academy'
 author_image: '/images/dynamicwebsiteimages/CoachWaynesPrivates.JPG'
 ---
 

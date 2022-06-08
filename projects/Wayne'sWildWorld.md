@@ -4,7 +4,7 @@ date: 'January 20, 2022'
 excerpt: 'A static website made with html css, and bootstrap'
 cover_image: '/images/wayneswildworldImages/coverImage.png'
 category: ''
-author: 'WayneCarl Barker'
+author: 'My Personal Blog'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 

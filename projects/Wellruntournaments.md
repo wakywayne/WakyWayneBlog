@@ -4,7 +4,7 @@ date: 'March 25, 2022'
 excerpt: 'A fullstack application with a backend equipped with a frontend user interface'
 cover_image: '/images/wellruntournamentsImages/wellrunNiceLookingMain.png'
 category: ''
-author: 'WayneCarl Barker'
+author: 'Well Run Tournaments Company'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 

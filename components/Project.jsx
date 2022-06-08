@@ -42,7 +42,7 @@ export default function Post({ post }) {
                     <a className="mt-3 text-blue-700 hover:text-blue-700 hover:underline" >Read More</a>
                 </Link>
 
-                <div className="items-center felx">
+                <div className="flex items-center">
                     {/* <img src={`${post.frontmatter.author_image}`} className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" /> */}
                     <h3 className="font-bold text-blue-700">
                         {post.frontmatter.author}
