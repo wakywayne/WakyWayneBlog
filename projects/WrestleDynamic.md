@@ -1,5 +1,5 @@
 ---
-title: 'WrestleDynamic.com'
+title: 'Wrestle Dynamic'
 date: 'October 20, 2021'
 excerpt: 'A static website made with html css, and bootstrap'
 cover_image: '/images/dynamicwebsiteimages/homePage.png'
@@ -8,8 +8,8 @@ author: 'WayneCarl Barker'
 author_image: '/images/dynamicwebsiteimages/CoachWaynesPrivates.JPG'
 ---
 
-# [Wrestle Dynamic](http://wrestledynamic.com/)
-> #### Wrestle dynamic is where I where I have been working as a wrestling coach since _2018_. This place is like my home away from home and I love doing private lessons with my wrestlers. I built this website so the business would have a presence on the internet and our customers could stay in the loop about everything going on at the club
+# [<span style="text-decoration: underline;">www.WrestleDynamic.com</span>](http://wrestledynamic.com/)
+> #### Wrestle dynamic is where I have been working as a wrestling coach since _2018_. This place is like my home away from home and I love doing private lessons with my wrestlers. I built this website so the business would have a presence on the internet and our customers could stay in the loop about everything going on at the club
 
 ## This project includes:
 > - #### A youtube modal in the footer explaining our software company [wellruntournaments](https://www.wellruntournaments.com/)
@@ -25,6 +25,6 @@ author_image: '/images/dynamicwebsiteimages/CoachWaynesPrivates.JPG'
 >   8. ##### A page linking to the [dynamic curriculum](http://www.wrestlingcurriculum.com/)
 >        - ##### This is a large project I have been working on that was mostly built by my boss Jason Layton there is a separate article talking about this.
 
- ## One of the coolest features of this site is the custom schedule that I can easily update and is scrollable on mobile
+ ## One of the coolest features of this site is the custom schedule that I can easily update and is scrollable on mobile phones
 ![Our Schedule](/images/dynamicwebsiteimages/schedule.png)
 

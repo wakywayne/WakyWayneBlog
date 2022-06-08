@@ -1,5 +1,5 @@
 ---
-title: 'WellRunTournaments.com'
+title: 'Well Run Tournaments'
 date: 'March 25, 2022'
 excerpt: 'A fullstack application with a backend equipped with a frontend user interface'
 cover_image: '/images/wellruntournamentsImages/temporaryHomePage.png'
@@ -11,7 +11,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->
 
 
-# [Well Run Tournaments](https://wellruntournaments-jwlnqhy5v-wakywayne.vercel.app/)
+# [<span style="text-decoration: underline;">www.WellRunTournaments.com</span>](https://wellruntournaments-jwlnqhy5v-wakywayne.vercel.app/)
 ## What was included in this project
 > - #### A main page that displays the 12 events that are closest *by date*
 > - #### A default image that will be used if no image is uploaded

@@ -1,5 +1,5 @@
 ---
-title: 'WaynesWildWorld.com'
+title: 'WaynesWildWorld'
 date: 'January 20, 2022'
 excerpt: 'A static website made with html css, and bootstrap'
 cover_image: '/images/wayneswildworldImages/coverImage.png'
@@ -8,8 +8,8 @@ author: 'WayneCarl Barker'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
-# [Waynes Wild World](https://wayneswildworld.com/)
-> ### The purpose of this project is to build a group of people who like to travel or just get out of their house. This sight has multiple pages with several different functionallities such as:
+# [<span style="text-decoration: underline;">www.WaynesWildWorld.com</span>](https://wayneswildworld.com/)
+> ### The purpose of this project is to build a group of people who like to travel or just get out of their house. This site has multiple pages with several different functionalities such as:
 > - #### Rotating pictures
 > - #### Rolling word sets
 > - **Video thumb nails that open up a youtube modal**
