@@ -8,7 +8,7 @@ author: 'My Personal Blog'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
-# [<span style="text-decoration: underline;">www.WaynesWildWorld.com</span>](https://wayneswildworld.com/)
+# [<span style="text-decoration: underline; word-wrap: break-word;">www.WaynesWildWorld.com/</>](https://wayneswildworld.com/)
 > ### The purpose of this project is to build a group of people who like to travel or just get out of their house. This site has multiple pages with several different functionalities such as:
 > - #### Rotating pictures
 > - #### Rolling word sets

@@ -27,7 +27,7 @@ export default function Post({ post }) {
             <div className="mt-2">
                 <div className='flex '>
                     <Link href={`/blog/project/${post.slug}`}>
-                        <a className="text-2xl font-bold text-blue-900 underline hover:underline md:no-underline">{post.frontmatter.title} Testing </a>
+                        <a className="text-2xl font-bold text-blue-900 underline hover:underline md:no-underline">{post.frontmatter.title}</a>
                     </Link>
                     <FaHandPointer style={{ alignSelf: "flex-end" }} className='text-green-600 -rotate-45' />
                 </div>

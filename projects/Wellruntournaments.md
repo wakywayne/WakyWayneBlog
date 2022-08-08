@@ -1,5 +1,5 @@
 ---
-title: 'Well Run Tournaments'
+title: 'Wrestling Tournaments'
 date: 'March 25, 2022'
 excerpt: 'A fullstack application with a backend equipped with a frontend user interface'
 cover_image: '/images/wellruntournamentsImages/wellrunNiceLookingMain.png'
@@ -11,9 +11,12 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->
 
 
-# [<span style="text-decoration: underline;">www.WellRunTournaments.com</span>](https://wellruntournaments-jwlnqhy5v-wakywayne.vercel.app/)
+# [<span style="text-decoration: underline; word-wrap: break-word;">www.wrestlingtournaments.com/</span>](https://www.wrestlingtournaments.com/)
+
 ## What was included in this project
-> - #### A main page that displays the 12 events that are closest based on date (*Main Photo*)
+> - #### A main page that displays all vents on a map with various filters that the user can use to refine the search (*Main Photo*)
+> - ### Below the map is the list of events
+> - ![Image of Events displayed](/images/wellruntournamentsImages/Events.png)
 > - #### A default image that will be used if no image is uploaded
 > - #### If you click on the details button it brings you to full details page for the event *Images Below*
 >   - ![Image Showing Button To Circle](/images/wellruntournamentsImages/circleddetails.png)
