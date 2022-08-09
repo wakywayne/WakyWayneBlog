@@ -25,11 +25,11 @@ export default function Post({ post }) {
             </div>
 
             <div className="mt-2">
-                <div className='flex '>
+                <div className='flex flex-col'>
+                    <h2 className="text-2xl font-bold text-blue-900 ">{post.frontmatter.title}</h2>
                     <Link href={`/blog/project/${post.slug}`}>
-                        <a className="text-2xl font-bold text-blue-900 underline hover:underline md:no-underline">{post.frontmatter.title}</a>
+                        <small className=" hover:cursor-pointer bg-green-600 rounded w-max px-2 py-1 m-2 hover:ring-2 focus:ring-blue-600">View Details</small>
                     </Link>
-                    <FaHandPointer style={{ alignSelf: "flex-end" }} className='text-green-600 -rotate-45' />
                 </div>
 
                 <p className="mt-2 text-blue-600">
