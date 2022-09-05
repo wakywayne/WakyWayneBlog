@@ -5,7 +5,7 @@ excerpt: 'Both Tailwind and Bootstrap are very popular CSS frameworks. In this a
 cover_image: '/images/posts/img2.jpg'
 category: 'Frontend'
 author: 'Jane Doe'
-author_image: 'https://randomuser.me/api/portraits/women/11.jpg'
+author_image: ''
 ---
 
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->

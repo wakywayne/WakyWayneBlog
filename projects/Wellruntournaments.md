@@ -11,7 +11,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->
 
 
-# [<span style="text-decoration: underline; word-wrap: break-word;">www.wrestlingtournaments.com/</span>](https://www.wrestlingtournaments.com/)
+# [<span style="text-decoration: underline; word-wrap: break-word;">Click to view full site</span>](https://www.wrestlingtournaments.com/)
 
 ## What was included in this project
 > - #### A main page that displays all vents on a map with various filters that the user can use to refine the search (*Main Photo*)

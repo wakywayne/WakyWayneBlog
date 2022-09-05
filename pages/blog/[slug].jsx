@@ -14,21 +14,21 @@ export default function PostPage({ frontmatter: { title, category, date, cover_i
     return (
         <Layout title={title}>
             <Link href='/blog'>Go Back</Link>
-            <div className=' w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6'>
-                <div className=' flex justify-between items-center mt-4'>
+            <div className='w-full px-10 py-6 mt-6 bg-white rounded-lg shadow-md '>
+                <div className='flex items-center justify-between mt-4 '>
                     <h1 className='text-5xl mb-7'>
                         {title}
                     </h1>
                     <CategoryLabel>{category}</CategoryLabel>
                 </div>
-                <img src={cover_image} alt="" className=' w-full rounded' />
+                <img src={cover_image} alt="" className='w-full rounded ' />
 
-                <div className='flex justify-between items-center bg-blue-100 p-2 my-8'>
+                <div className='flex items-center justify-between p-2 my-8 bg-blue-100'>
                     <div className='flex items-center'>
                         <img
-                            src={author_image}
+                            src={author_image ? author_image : '/images/default2.jpg'}
                             alt=''
-                            className='mx-4 w-10 h-10 object-cover rounded-full hidden sm:block'
+                            className='hidden object-cover w-10 h-10 mx-4 rounded-full sm:block'
                         />
                         <h4>{author}</h4>
                     </div>
@@ -36,7 +36,7 @@ export default function PostPage({ frontmatter: { title, category, date, cover_i
                 </div>
 
                 <article className='mt-2'>
-                    <div className=" prose" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+                    <div className="prose " dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
                 </article>
             </div>
         </Layout>

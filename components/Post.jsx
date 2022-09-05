@@ -10,7 +10,7 @@ export default function Post({ post }) {
     return (
         <div className='w-full px-10 py-6 mt-6 bg-white rounded-lg shadow-md '>
             <Image
-                src={`${post.frontmatter.cover_image}`}
+                src={`${post.frontmatter.cover_image ? post.frontmatter.cover_image : '/images/default.jpg'}`}
                 alt={post.frontmatter.title}
                 height={420}
                 width={600}
@@ -36,8 +36,8 @@ export default function Post({ post }) {
                     <a className="mt-3 text-blue-700 hover:text-blue-700 hover:underline" >Read More</a>
                 </Link>
 
-                <div className="items-center felx">
-                    {/* <img src={`${post.frontmatter.author_image}`} className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" /> */}
+                <div className="flex items-center">
+                    <img src={`${post.frontmatter.author_image ? post.frontmatter.author_image : '/images/default2.jpg'}`} className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" />
                     <h3 className="font-bold text-blue-700">
                         {post.frontmatter.author}
                     </h3>

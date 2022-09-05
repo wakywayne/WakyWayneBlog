@@ -5,7 +5,7 @@ excerpt: 'Crash course to learn the React JavaScript library. We will look at co
 cover_image: '/images/posts/img5.jpg'
 category: 'Backend'
 author: 'Jane Doe'
-author_image: 'https://randomuser.me/api/portraits/women/11.jpg'
+author_image: ''
 ---
 
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->

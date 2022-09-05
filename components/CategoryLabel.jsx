@@ -6,9 +6,11 @@ export default function CategoryLabel({ children }) {
 
     const colorKey = {
         Database: 'green',
-        Backend: 'purple',
-        Frameworks: 'blue',
-        Frontend: 'red',
+        General: 'purple',
+        Styles: 'blue',
+        ServerSide: 'gray',
+        ClientSide: 'orange',
+        Utilities: 'red',
     }
 
     const bgColor = `bg-${colorKey[children]}-600`;
