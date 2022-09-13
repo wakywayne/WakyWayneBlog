@@ -3,7 +3,7 @@
 > 2. Client Side Code
 > 3. ServerSide Code
 > 4. Database
-> 5. General
+> 5. UsefulTips
 
 ## What the projects are
 1. 

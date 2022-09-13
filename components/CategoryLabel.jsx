@@ -6,7 +6,7 @@ export default function CategoryLabel({ children }) {
 
     const colorKey = {
         Database: 'green',
-        General: 'purple',
+        UsefulTips: 'purple',
         Styles: 'blue',
         ServerSide: 'gray',
         ClientSide: 'orange',
