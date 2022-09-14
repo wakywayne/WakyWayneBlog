@@ -1,9 +1,9 @@
 ---
-title: 'How to use a tenancy model'
+title: 'How to turn your web app into a PWA'
 date: 'September, 12, 2022'
-excerpt: 'Ever wonder how to group users based on a shared use case?'
+excerpt: 'Companies like twitter understand the value of making there website a pwa learn more about this topic here'
 cover_image: '/images/posts/img7.jpg'
-category: 'Database'
+category: 'Utilities'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
@@ -23,7 +23,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # How to start?
 1. Install next-pwa package
-2. Use pwa generator website for manifest.json and icon sizes
+2. Use pwa generator website for manifest.json and icon sizes [link here](https://www.simicart.com/manifest-generator.html/)
 3. Next make your manifest.json file and paste in the code you got from previous site
     - ```javascript
         {
@@ -36,6 +36,11 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
             "name": "wrestlingtournaments.com",
             "short_name": "Wrestling Tournaments",
             "icons": [
+                 {
+                    "src": "/icon-142x142.png",
+                    "sizes": "142x142",
+                    "type": "image/png"
+                }, 
                 {
                     "src": "/icon-192x192.png",
                     "sizes": "192x192",
@@ -79,4 +84,41 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
         <link rel='manifest' href='/manifest.json' />
         <meta name="theme-color" content="#f90c08" />
         <link rel='apple-touch-icon' href='/icon.png' />
+        ```
+6. Making a custom Clickable button
+    - ```javascript
+        import React, { useState, useEffect } from 'react';
+
+
+        const PwaInstallButton = () => {
+            const [supportsPWA, setSupportsPWA] = useState(false);
+            const [promptInstall, setPromptInstall] = useState(null);
+
+            useEffect(() => {
+                console.log('in use')// I see in the console
+                const handler = e => {
+                    console.log('in handler') // I do not see in the console
+                    e.preventDefault();
+                    setSupportsPWA(true);
+                    setPromptInstall(e);
+                };
+                window.addEventListener("beforeinstallprompt", handler);
+                return () => window.removeEventListener("transitionend", handler);
+            }, []);
+
+            const onClick = e => {
+                e.preventDefault();
+                if (promptInstall) {
+                    promptInstall.prompt();
+                } else {
+                    return;
+                };
+            };
+
+            return (
+                promptInstall && (<button className='pwaButton' onClick={(e) => onClick(e)}>Install Our App</button>)
+            )
+        };
+
+        export default PwaInstallButton;
         ```
