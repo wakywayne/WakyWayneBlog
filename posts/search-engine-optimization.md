@@ -33,7 +33,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 1. Install next-sitemap
 2. Add *"postbuild" : "next-sitemap"* to you build scripts
 3. add next-sitemap.config.js file to root of project
+
 ```javascript
+
         const siteUrl = "https://wrestlingtournaments.com";
 
         module.exports = {
@@ -47,12 +49,14 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
         }
 ```
 4. Add your sitmaps to git ignore *this is because they will be generated at build*
-       - ```
+
+```
         public/robots.txt
         public/sitemap.xml
         public/sitemap-0.xml
-        ```
+```
 5. If you need to generate dynamic Pages make a folder called server-sitemap.xml in it index.js or index.jsx file
+
 ```javascript
         
         export default function SiteMap() {
