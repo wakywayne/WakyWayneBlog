@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function CategoryLists({ categories }) {
     return (
-        <div className=' w-full p-5 bg-white rounded-lg shadow-md mt-6'>
-            <h3 className='text-1xl lg:text-2xl bg-green-600 text-white p-3 rounded'>Categories</h3>
+        <div className='w-full p-5 mt-6 bg-white rounded-lg shadow-md '>
+            <h3 className='p-3 text-white bg-green-600 rounded text-1xl lg:text-2xl'>Categories</h3>
             <ul className="divide-y divide-blue-300">
                 {categories.map((category, index) => (
                     <Link key={index} href={`/blog/category/${category.toLowerCase()}`}>

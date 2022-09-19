@@ -14,7 +14,7 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
         <Layout>
 
             <div className="flex justify-between">
-                <div className="w-3/4 mr-10">
+                <div className="mr-10 sm:w-full md:w-3/4">
                     <h1 className="p-5 mb-2 text-5xl font-bold border-b-4 ">Blog</h1>
 
                     <div className="grid gap-5 md:grid-col-2 lg:grid-cols-3">
@@ -24,7 +24,7 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
                     </div>
                 </div>
 
-                <div className='w-1/4 '>
+                <div className='hidden md:inline-block md:w-1/4 '>
                     <CategoryLists categories={categories} />
                 </div>
 
