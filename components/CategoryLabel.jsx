@@ -11,6 +11,7 @@ export default function CategoryLabel({ children }) {
         ServerSide: 'gray',
         ClientSide: 'orange',
         Utilities: 'red',
+        FrameWorks: 'yellow',
     }
 
     const bgColor = `bg-${colorKey[children]}-600`;

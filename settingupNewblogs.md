@@ -1,9 +1,15 @@
 # the current categories:
-> 1. Styles
-> 2. Client Side Code
-> 3. ServerSide Code
-> 4. Database
-> 5. UsefulTips
+```javascript
+    const colorKey = {
+        Database: 'green',
+        UsefulTips: 'purple',
+        Styles: 'blue',
+        ServerSide: 'gray',
+        ClientSide: 'orange',
+        Utilities: 'red',
+        FrameWorks: 'yellow',
+    }
+```
 
 ## What the projects are
 1. 
@@ -20,12 +26,12 @@
 ## Frontmatter Example
 ```
 ---
-title: 'Django Crash Course'
-date: 'May 5, 2021'
-excerpt: 'Django is a very powerful, high level Python framework for building web applications'
-cover_image: '/images/posts/img3.jpg'
-category: 'Database'
-author: 'Sam Smith'
-author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
+title: 'Tailwind'
+date: 'September 14, 2022'
+excerpt: 'This article will cover everything I have learned about tailwind'
+cover_image: ''
+category: 'Styles'
+author: 'WayneCarl'
+author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 ```
