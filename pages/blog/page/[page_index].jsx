@@ -15,16 +15,16 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
 
             <div className="flex justify-between">
                 <div className="w-3/4 mr-10">
-                    <h1 className=" text-5xl border-b-4 mb-2 p-5 font-bold">Blog</h1>
+                    <h1 className="p-5 mb-2 text-5xl font-bold border-b-4 ">Blog</h1>
 
-                    <div className=" grid md:grid-col-2 lg:grid-cols-3 gap-5">
+                    <div className="grid gap-5 md:grid-col-2 lg:grid-cols-3">
                         {posts.map((post) => (
                             <Post key={post.id} post={post} />
                         ))}
                     </div>
                 </div>
 
-                <div className=' w-1/4'>
+                <div className='w-1/4 '>
                     <CategoryLists categories={categories} />
                 </div>
 
@@ -66,7 +66,7 @@ export async function getStaticProps({ params }) {
 
 
     // Get categories for sidebar
-    const categories = posts.map((post) => post.frontmatter.category)
+    const categories = posts.map((post) => (post.frontmatter.category))
     // ADD THIS TO HACKS! This goes through the array and removes duplicates
     const uniqueCategories = [...new Set(categories)]
 
