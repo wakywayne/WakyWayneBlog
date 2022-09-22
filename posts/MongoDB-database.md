@@ -1,7 +1,7 @@
 ---
 title: 'MongoDB'
 date: 'September 22, 2022'
-excerpt: 'MongoDB is an excellent noSQL database it's a must learn'
+excerpt: "MongoDB is an excellent noSQL database it's a must learn"
 cover_image: ''
 category: 'FrameWorks'
 author: 'WayneCarl'
