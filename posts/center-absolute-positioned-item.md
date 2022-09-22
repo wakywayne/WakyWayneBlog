@@ -3,7 +3,7 @@ title: 'Center absolutely positioned element'
 date: 'September 19, 2022'
 excerpt: 'The CSS3 way of centering absolutely positioned elements'
 cover_image: ''
-category: 'UsefulTips'
+category: 'Styles'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

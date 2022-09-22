@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from "next/link"
-import { lime } from 'tailwindcss/colors';
 
 
 export default function Pagination({ currentPage, numPages }) {
