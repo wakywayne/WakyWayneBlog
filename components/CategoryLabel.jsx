@@ -19,7 +19,7 @@ export default function CategoryLabel({ children }) {
     // IMPORTANT you must add a safe list to the tailwingconfig for this to work
 
     return (
-        <div className={` px-2 py-1 font-bold rounded ${bgColor}`}>
+        <div className={` px-2 py-1 font-bold rounded ${bgColor} m-1 ${children == "FrameWorks" ? "text-sm" : ""} `}>
             <Link href={`/blog/category/${children.toLowerCase()}`}>
                 {children}
             </Link>
