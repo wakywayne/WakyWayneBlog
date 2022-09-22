@@ -13,25 +13,27 @@ export default function Pagination({ currentPage, numPages }) {
     if (numPages === 1) return null;
 
     return (
-        <div className=' flex pl-0 list-none my-2'>
+        <div className='flex pl-0 my-2 list-none '>
             {!isFirst && (
                 <Link href={prevPage}>
-                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-blue-300 mr-1 hover:bg-green-200
-                    text-blue-800 cursor-pointer'>Previous</li>
+                    <li className='relative block px-3 py-2 mr-1 leading-tight text-blue-800 bg-white border border-blue-300 cursor-pointer hover:bg-green-200'>Previous</li>
                 </Link>
 
             )}
-            {Array.from({ length: numPages }, (_, i) => (
-                <Link href={`/blog/page/${i + 1}`} key={`page-${i}`}>
-                    <li className='relative block py-2 px-3 leading-tight bg-white border border-blue-300 text-blue-800 mr-1 hover:bg-green-200 cursor-pointer'>
-                        {i + 1}
-                    </li>
-                </Link>
-            ))}
+            {Array.from({ length: numPages }, (_, i) => {
+                if (i === 0 || i === numPages - 1 || i === currentPage - 1 || i === currentPage || i === currentPage + 1) {
+                    return (
+                        <Link href={`/blog/page/${i + 1}`} key={`page-${i}`}>
+                            <li className='relative block px-3 py-2 mr-1 leading-tight text-blue-800 bg-white border border-blue-300 cursor-pointer hover:bg-green-200'>
+                                {i + 1}
+                            </li>
+                        </Link>
+                    )
+                }
+            })}
             {!isLast && (
                 <Link href={nextPage}>
-                    <li className=' relative block py-2 px-3 leading-tight bg-white border border-blue-300 text-blue-800 mr-1 hover:bg-green-200
-                     cursor-pointer'>Next</li>
+                    <li className='relative block px-3 py-2 mr-1 leading-tight text-blue-800 bg-white border border-blue-300 cursor-pointer hover:bg-green-200'>Next</li>
                 </Link>
 
             )}
