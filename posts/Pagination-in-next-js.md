@@ -54,7 +54,6 @@ export async function getStaticProps({ params }) {
 
     // Get categories for sidebar
     const categories = posts.map((post) => (post.frontmatter.category))
-    // ADD THIS TO HACKS! This goes through the array and removes duplicates
     const uniqueCategories = [...new Set(categories)]
 
     const numPages = Math.ceil(files.length / POSTS_PER_PAGE)
@@ -120,7 +119,6 @@ export default function Pagination({ currentPage, numPages }) {
     const prevPage = `/blog/page/${currentPage - 1}`;
     const nextPage = `/blog/page/${currentPage + 1}`;
 
-    // Definitely should add this to hacks
 
     if (numPages === 1) return null;
 
@@ -137,6 +135,11 @@ export default function Pagination({ currentPage, numPages }) {
             // 
             // Below is a super cool trick for dynamically generating page numbers that you can use to bring you to that corresponding page
             // 
+        
+          {Array.from({ length: numPages }, (_, i) => {
+                if (i === 0 || i === numPages - 1 || i === currentPage - 1 || i === currentPage || i === currentPage + 1) {
+        // The above method only lists the first previous next and last pages I love this TRICK!!!
+        // Alternatively you can just list all the pages
             {Array.from({ length: numPages }, (_, i) => (
                 // We do plus one because the array starts at zero and there is no page zero
                 <Link href={`/blog/page/${i + 1}`} key={`page-${i}`}>

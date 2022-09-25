@@ -5,6 +5,7 @@ import matter from "gray-matter"
 import Post from "@/components/Post"
 import Pagination from "@/components/Pagination"
 import CategoryLists from "@/components/CategoryLists"
+import CategoryListsMobile from "@/components/CategoryListsMobile"
 import { POSTS_PER_PAGE } from "@/config/index"
 import { getPosts } from "@/lib/posts"
 
@@ -13,7 +14,7 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
     return (
         <Layout>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row justify-between">
                 <div className="mr-10 sm:w-full md:w-3/4">
                     <h1 className="p-5 mb-2 text-5xl font-bold border-b-4 ">Blog</h1>
 
@@ -28,6 +29,9 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
                     <CategoryLists categories={categories} />
                 </div>
 
+                <div className='block md:hidden w-full '>
+                    <CategoryListsMobile categories={categories} />
+                </div>
             </div>
 
 
@@ -65,9 +69,7 @@ export async function getStaticProps({ params }) {
     const posts = getPosts();
 
 
-    // Get categories for sidebar
     const categories = posts.map((post) => (post.frontmatter.category))
-    // ADD THIS TO HACKS! This goes through the array and removes duplicates
     const uniqueCategories = [...new Set(categories)]
 
     const numPages = Math.ceil(files.length / POSTS_PER_PAGE)

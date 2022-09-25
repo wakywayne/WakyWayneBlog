@@ -23,13 +23,13 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 - outDir *determines where you compiled code will go*
 - the include array determines what files should be compiled 
 - If you install package that doesn't have types *make a file filename.d.ts*
-    - ```typescript
+```typescript
         declare module 'filename' {
             export function someFn():number;
         }
-        ```
+```
 - When using react you should make a source map so you can accurately match error lines correctly webpack.config.js
-    - ```javascript
+```javascript
         const htmlWebpackPlugin = require('html-webpack-plugin');
         const MiniCssExtractPlugin = require('mini-css-extract-plugin');
         
@@ -74,7 +74,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
                 new MiniCssExtractPlugin(),
             ]
         }
-        ```
+```
 
 # Types
 >## Primitive Types

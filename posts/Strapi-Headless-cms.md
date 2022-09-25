@@ -13,7 +13,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ## Integrate Cloudinary
 1. yarn add strapi-provider-upload-cloudinary
 2. make a plugins.js file in config folder
-  - ```javascript
+```javascript
       module.exports = ({ env }) => ({
           upload: {
               config: {
@@ -42,7 +42,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
               },
           },
       });
-    ```
+```
 3. Go to cloudinary and add the env variables to strapi in .env
 
 ## Doing a Search for Multiple Queries
@@ -163,7 +163,7 @@ export async function getServerSideProps({ query: { term } }) {
     1. install *strapi-plugin-slugify*
     2. Settings > Roles > Public > Slugify (checkbox findSlug)
     3. In config/plugins.js
-        - ```javascript
+```javascript
             module.exports = ({ env }) => ({
                 slugify: {
                     enabled: true,
@@ -177,9 +177,9 @@ export async function getServerSideProps({ query: { term } }) {
                     },
                 },
             });
-            ```
+```
 - uploading images to content type
-    - ```javascript
+```javascript
             const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData()
@@ -203,7 +203,7 @@ export async function getServerSideProps({ query: { term } }) {
             body: formData
         })
         }
-        ```
+```
 
 ## PUT
 - body: JSON.stringify({ data: values })
@@ -232,7 +232,7 @@ export async function getServerSideProps({ query: { term } }) {
   - heroku config *this will show you database url*
 5. yarn add pg-connection-string pg
 6. In config folder create file structure env/production/database.js *the database folder in root is for local only*
-  - ```javascript
+```javascript
       const parse = require('pg-connection-string').parse;
       const config = parse(process.env.DATABASE_URL);
       module.exports = ({ env }) => ({
@@ -251,9 +251,9 @@ export async function getServerSideProps({ query: { term } }) {
               debug: false,
           },
       });
-    ```
+```
 7. In the same folder as database.js make a server.js file
-  - ```javascript
+```javascript
       module.exports = ({ env }) => ({
         proxy: true,
         url: env('MY_HEROKU_URL'),
@@ -261,13 +261,13 @@ export async function getServerSideProps({ query: { term } }) {
             keys: env.array('APP_KEYS')
         },
       })
-    ```
+```
 8. heroku config:set NODE_ENV=production
 9. heroku config:set MY_HEROKU_URL=$(heroku info -s | grep web_url | cut -d= -f2)
   - *This sets MY_HEROKU_URL to what the web url is*
 10. **IMPORTANT** In .env you will see APP_KEYS copy the value and paste one at a time into config/server.js
   - *Should look something like this*
-  - ```javascript
+```javascript
         module.exports = ({ env }) => ({
         host: env('HOST', '0.0.0.0'),
         port: env.int('PORT', 1337),
@@ -275,5 +275,5 @@ export async function getServerSideProps({ query: { term } }) {
           keys: env.array('APP_KEYS', ['ksjhfdkjhdjfhsdkfjh==', 'kjhkjhkjhdsfs==', 'hjfksdhfksjaue==', 'hjkfhslkajdhfueuhfc==']),
         },
       });
-    ```
+```
 11. You must reset the permissions in the production database

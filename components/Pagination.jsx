@@ -8,7 +8,6 @@ export default function Pagination({ currentPage, numPages }) {
     const prevPage = `/blog/page/${currentPage - 1}`;
     const nextPage = `/blog/page/${currentPage + 1}`;
 
-    // Definitely should add this to hacks
 
     if (numPages === 1) return null;
 
@@ -20,6 +19,9 @@ export default function Pagination({ currentPage, numPages }) {
                 </Link>
 
             )}
+
+
+            {/* @todo add this to hacks  */}
             {Array.from({ length: numPages }, (_, i) => {
                 if (i === 0 || i === numPages - 1 || i === currentPage - 1 || i === currentPage || i === currentPage + 1) {
                     return (

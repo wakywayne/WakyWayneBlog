@@ -18,15 +18,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Rules
 - If you want to dynamically add a class via javascript you must add safelist
-     ```javascript
-          safelist: [
-            'bg-yellow-600',
-            'bg-blue-600',
-            'bg-green-600',
-            'bg-purple-600',
-            'bg-red-600',
+```javascript
+  safelist: [
+    'bg-yellow-600',
+    'bg-blue-600',
+    'bg-green-600',
+    'bg-purple-600',
+    'bg-red-600',
           ]
-    ```
+```
 
 # Customization
 **@apply allows you to use tailwind css classes in the customization you can use md: & hover:**
@@ -53,11 +53,11 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ## Making breakpoints on screen
 1. add require require("tailwind-debug-screens") to plugins
 2. In theme add 
-  - ```
+```
     debugScreens:{
       position: ['top','left'],
     }  
-      ```
+```
 3. In your main body tag add class debug-screens
 
 ## Customizing your breakpoints with a container class
@@ -94,24 +94,24 @@ theme:{
 ## Adding custom fonts
 1. create fonts folder
 2. In styles 
-  ```javascript
+```javascript
     @layer base{
       @font-face{
         font-family: Oswald;
         src: url(/dist/fonts/Oswald/Oswald-Bold.ttf) format("truetype");
       }
     }
-  ```
+```
 
 3. Under theme in tailwind.config.js
 *Under theme*
-    ```javascript
+```javascript
        extend:{
          fontFamily:{
            headline: ['Oswald']
          }
        }
-    ```
+```
 
 
 ## Custom Colors
@@ -127,12 +127,12 @@ extend:{
 ## Building your own palets entirely
 1. add full color package
   - in cofig file: const colors = require("tailwindcss/colors") *at the very top*
-2.  ```javascript
+```javascript
       colors:{
         red: colors.rose,
         gray: colors.blueGray,
       }
-      ```
+```
 
 ## Making Custom Container class
 *Probably easier to use tailwind css file, but this is an option*
@@ -154,11 +154,11 @@ container:{
 ## Making you outsource file 
 1. Save tailwind config file and rename it
 2. In module.exports
-  - ```javascript
+```javascript
     presets: [
       require('./myFileName.js'),
     ]
-  ```
+```
 
 ### Casing/ Font
 - text

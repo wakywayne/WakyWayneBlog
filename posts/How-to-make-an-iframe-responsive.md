@@ -4,12 +4,15 @@ date: 'May 15, 2022'
 excerpt: 'Do you ever struggle to make your iframes look good and be responsive?'
 cover_image: ''
 category: 'Styles'
-author: 'WayneCarl'
-author_image: '/images/wayneswildworldImages/waterfall.jpg'
+author: 'Ben Marshall'
+author_image: 'https://secure.gravatar.com/avatar/c4f2515f54557c3973fc1f604954cea7?s=60&d=mm&r=g'
 ---
 
 # How to make an iframe responses
 *Do you ever struggle to make your iframes look good and be responsive?*
+
+### I strongly recomend you look at the explanation to this code on the authors site:
+[Authors full code example](https://www.benmarshall.me/responsive-iframes/)
 
 ## Just apply the above css to a div that wraps your iframe
 

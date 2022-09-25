@@ -30,13 +30,13 @@ import dynamic from 'next/dynamic'
 
 ### Images
 - To use images from outside sources you must make a next.config.js file
-    - ```javascript
+```javascript
         module.exports = {
           images: {
             domains: ['res.cloudinary.com'],
           },
         }
-        ```
+```
 
 ### Modals
 *When the page renders you dont have acess to the window.document*

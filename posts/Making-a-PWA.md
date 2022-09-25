@@ -25,7 +25,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 1. Install next-pwa package
 2. Use pwa generator website for manifest.json and icon sizes [link here](https://www.simicart.com/manifest-generator.html/)
 3. Next make your manifest.json file and paste in the code you got from previous site
-    - ```javascript
+```javascript
         {
             "theme_color": "#f90c08",
             "id": "https://www.wrestlingtournaments.com/",
@@ -63,9 +63,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
                 }
             ]
         }
-        ```
+```
 4. Then add to next.config.json
-    - ```javascript
+```javascript
         const withPWA = require('next-pwa')({
           dest: 'public',
           register: true,
@@ -78,15 +78,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
             // You can put any other dependencies like image origins here
         });
-        ```
+```
 5. Add the following to the Head in your *_document.js*
-    - ```html
+```html
         <link rel='manifest' href='/manifest.json' />
         <meta name="theme-color" content="#f90c08" />
         <link rel='apple-touch-icon' href='/icon.png' />
-        ```
+```
 6. Making a custom Clickable button
-    - ```javascript
+```javascript
         import React, { useState, useEffect } from 'react';
 
 
@@ -121,4 +121,4 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
         };
 
         export default PwaInstallButton;
-        ```
+```

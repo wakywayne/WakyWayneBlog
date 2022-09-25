@@ -29,7 +29,7 @@ author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
 1. Import matter from gray-matter
 2. Get Paths *If needed* 
 3. Pull your frontmatter
-    - ```javascript
+```javascript
         export async function getStaticPaths() {
             const files = fs.readdirSync(path.join('projects'));
 
@@ -63,19 +63,19 @@ author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
                 },
             }
         }
-        ```
+```
 4. Use your frontmatter on the front end
     - Below I show you marked which is a markdown parser [npm page for marked](https://www.npmjs.com/package/marked)
 
-    - ```javascript
+```javascript
         import { marked } from 'marked'
 
         <article className='mt-2'>
             <div dangerouslySetInnerHTML={{ __html: marked(content) }><div>
         </article>
-        ```
+```
 
-    - ```javascript
+```javascript
         export default function PostPage({ frontmatter: { title, category, date, cover_image, author, author_image }, content, slug }) {
         
         
@@ -111,5 +111,5 @@ author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
                 </Layout>
             )
         }
-        ```
+```
 

@@ -11,17 +11,7 @@
     }
 ```
 
-## What the projects are
-1. 
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
+# Make a nice transform effect that comes out sideways at the bottom on mobile so users can filter by categories
 
 ## Frontmatter Example
 ```
