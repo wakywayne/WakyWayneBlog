@@ -236,7 +236,23 @@ bg-gradient-to-tr *background gradient towards top right*
 *Numbers 1-100*
 
 ## Grid
-# need to go over
+### Using useful utility class
+**yarn add -D @shrutibalasa/tailwind-grid-auto-fit**
+```javascript
+// in tailwind.config.js
+plugins: [require('@shrutibalasa/tailwind-grid-auto-fit')],
+)]
+```
+
+*What is going on under the hood*
+```css
+.container{
+  display: grid; /*You must apply this before using package*/
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 2; /*You must apply this before using package*/
+}
+```
+
     
 # Styling
 ### Shadows

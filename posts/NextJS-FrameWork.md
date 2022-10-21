@@ -17,6 +17,8 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ## Special rules
 --------------------
 ### Dynamic Imports
+**This makes it so next only loads the component when it is in the users view**
+
 ```javascript
 import dynamic from 'next/dynamic'
 
@@ -165,9 +167,10 @@ export async function getStaticProps({ params }) {
 # Set Up
 **create-next-app name-of-project**
 - _app.js file is where in the component tag whatever the current page is will be rendered
+- *This is now your root layout component I believe*
 - css is stored in module system Home.module.css
-    - The only place you can import global styles is in app.js
 - *Make a layout Component that will wrap each page*
+- *INce again they now have a built in layout system for this*
 ```javascript
         import Head from 'next/head'
         import { useRouter } from 'next/router'
@@ -313,6 +316,282 @@ export async function getStaticProps({ params }) {
 >    }
 >  }
 > ```
+
+# Authentication
+# http only cookie method
+
+## Using Context Component to handle auth logic
+```javascript 
+    // <!-- You should name this file AuthContext cuz thats what you wll actually import -->
+        import { createContext, useState, useEffect } from 'react'
+        import { useRouter } from 'next/router'
+        import { NEXT_URL } from '@/config/index'
+
+        const AuthContext = createContext()
+
+
+    // you should wrap your whole app in import {AuthProvider} from ...
+
+    // To use the context you import useContext
+    // import AuthContext
+    // const {user, logout} = useContext(AuthContext)
+        export const AuthProvider = ({ children }) => {
+          const [user, setUser] = useState(null)
+          const [error, setError] = useState(null)
+
+          const router = useRouter()
+
+          useEffect(() => checkUserLoggedIn(), [])
+
+          // Register user
+          const register = async (user) => {
+            const res = await fetch(`${NEXT_URL}/api/register`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(user),
+            })
+
+            const data = await res.json()
+
+            if (res.ok) {
+              setUser(data.user)
+              router.push('/account/dashboard')
+            } else {
+              setError(data.message)
+              setError(null)
+            }
+          }
+
+          // Login user
+          const login = async ({ email: identifier, password }) => {
+            const res = await fetch(`${NEXT_URL}/api/login`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                identifier,
+                password,
+              }),
+            })
+
+            const data = await res.json()
+
+            if (res.ok) {
+              setUser(data.user)
+              router.push('/account/dashboard')
+            } else {
+              setError(data.message)
+              setError(null)
+            }
+          }
+
+          // Logout user
+          const logout = async () => {
+            const res = await fetch(`${NEXT_URL}/api/logout`, {
+              method: 'POST',
+            })
+
+            if (res.ok) {
+              setUser(null)
+              router.push('/')
+            }
+          }
+
+          // Check if user is logged in
+          const checkUserLoggedIn = async (user) => {
+            const res = await fetch(`${NEXT_URL}/api/user`)
+            const data = await res.json()
+
+            if (res.ok) {
+              setUser(data.user)
+            } else {
+              setUser(null)
+            }
+          }
+
+          return (
+            <AuthContext.Provider value={{ user, error, register, login, logout }}>
+              {children}
+            </AuthContext.Provider>
+          )
+        }
+
+        export default AuthContext
+```
+
+## Http only cookie
+### This cookie is only accessible on the request object via the backend *a more secure way of storing the token*
+**req.headers.cookie**
+
+## Register <u>backend</u> route
+_Note all these examples are done with **Strapi**_
+### Also note that same site is strict
+> Storing your access token in memory means that you just put it in a variable (like const accessToken = XYZ) instead of putting it in localStorage or cookies
+> [Article explaining optimal use](https://indepth.dev/posts/1382/localstorage-vs-cookies#:~:text=OAuth%202.0%20tokens%3F-,For%20a%20recap,-%2C%20here%20are%20the)
+
+```javascript
+import cookie from 'cookie'
+import { API_URL } from '@/config/index'
+
+export default async (req, res) => {
+  if (req.method === 'POST') {
+    const { username, email, password } = req.body
+
+    const strapiRes = await fetch(`${API_URL}/auth/local/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    })
+
+    const data = await strapiRes.json()
+
+    if (strapiRes.ok) {
+      // Set Cookie
+      res.setHeader(
+        'Set-Cookie',
+        cookie.serialize('token', data.jwt, {
+          httpOnly: true,
+          // Use the httpOnly flag to prevent JavaScript from reading it.
+          secure: process.env.NODE_ENV !== 'development',
+          // Use the secure=true flag so it can only be sent over HTTPS.
+          maxAge: 60 * 60 * 24 * 7, // 1 week
+          sameSite: 'strict',
+          // Use the SameSite=strict flag whenever possible to prevent CSRF. This can only be used if the Authorization Server has the same site as your front end. If this is not the case, your Authorization Server must set CORS headers in the backend or use other methods to ensure that the refresh token request can only be done by authorized websites.
+          path: '/',
+        })
+      )
+
+      res.status(200).json({ user: data.user })
+    } else {
+      res
+        .status(data.statusCode)
+        .json({ message: data.message[0].messages[0].message })
+    }
+  } else {
+    res.setHeader('Allow', ['POST'])
+    res.status(405).json({ message: `Method ${req.method} not allowed` })
+  }
+}
+```
+## Set cookie / login <u>backend</u> route
+```javascript
+import cookie from 'cookie'
+import { API_URL } from '@/config/index'
+
+export default async (req, res) => {
+  if (req.method === 'POST') {
+    const { identifier, password } = req.body
+
+    const strapiRes = await fetch(`${API_URL}/api/auth/local`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        identifier,
+        password,
+      }),
+    })
+
+    const data = await strapiRes.json()
+
+
+    if (strapiRes.ok) {
+      // Set Cookie
+      res.setHeader(
+        'Set-Cookie',
+        cookie.serialize('token', data.jwt, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+          maxAge: 60 * 60 * 24 * 7, // 1 week
+          sameSite: 'strict',
+          path: '/',
+        })
+      )
+
+      res.status(200).json({ user: data.user })
+    } else {
+      res
+        .status({ errorWithLogin: data.statusCode })
+        .json({ message: data.message })
+    }
+  } else {
+    res.setHeader('Allow', ['POST'])
+    res.status(405).json({ message: `Method ${req.method} not allowed` })
+  }
+}
+```
+
+## Persist user / check user logged in <u>backend</u> route
+*This is the api/user route*
+
+```javascript
+import cookie from 'cookie'
+import { API_URL } from '@/config/index'
+
+export default async (req, res) => {
+  if (req.method === 'GET') {
+    if (!req.headers.cookie) {
+      res.status(403).json({ message: 'Not Authorized' })
+      return
+    }
+
+    const { token } = cookie.parse(req.headers.cookie)
+
+    const strapiRes = await fetch(`${API_URL}/api/users/me`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    const user = await strapiRes.json()
+
+    if (strapiRes.ok) {
+      res.status(200).json({ user })
+    } else {
+      res.status(403).json({ message: 'User forbidden' })
+    }
+  } else {
+    res.setHeader('Allow', ['GET'])
+    res.status(405).json({ message: `Method ${req.method} not allowed` })
+  }
+}
+```
+
+
+*You would hit this api end point in auth context*
+```javascript
+
+useEffect(()=> checkUserLoggedIn(), [])
+
+const checkUserLoggedIn = async (user) => {
+  const res = await fetch(`${NEXT_URL}/api/user`)
+  const data = await res.json()
+
+  if(res.ok){
+    setUser(data.user)
+  }else{
+    setUser(null)
+  }
+
+}
+```
+
+
+# Next Auth Package
+twoVideos: 
+1. https://www.youtube.com/watch?v=EFucgPdjeNg
+2. https://www.youtube.com/watch?v=tgrvKGPmI04
 
 # Types
 

@@ -19,7 +19,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
     - *This makes it so that you can't pass null if it is not expected*
 - "skipLibCheck": true
     - *This skips type check declarations and decreases compile time*
+- no unchecked index access to true
 - forceConsistentCasingInFileNames true
+- strict null checks true
 - outDir *determines where you compiled code will go*
 - the include array determines what files should be compiled 
 - If you install package that doesn't have types *make a file filename.d.ts*
