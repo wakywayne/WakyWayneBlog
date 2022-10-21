@@ -47,6 +47,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
     - Store link in env
     - Replace question mark at the end with your data base
     - Create Config folder for your database connection
+
 ```javascript
         const mongoose = require('mongoose');
 
@@ -75,6 +76,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 ## Creating Models
 *Each Model should be named singular and it's on file*
+
 ```javascript
 // file name is models/Client.js
 const mongoose = require('mongoose');
@@ -95,6 +97,7 @@ const ClientSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Client', ClientSchema);
 ```
+
 
 ```javascript
 // file name is models/Project.js
@@ -157,6 +160,7 @@ module.exports = mongoose.model('Project', ProjectSchema);
 
 ## Validation
 *If you wanted to change a collection after it has been created then you would use db.runCommand with a callMod*
+
 ```javascript
 db.createCollection('posts', {
   validator: {
@@ -257,6 +261,7 @@ db.collection.find({**"**feildOne.nestedFeild **"** : 12})
 - $expr: {$gt: ["$volume", "$target"]} *This will find all the docs where volume is greater than target*
 - $cond: {if: {something}, then:{somethindElse}, else: "$field"}
   - **Example**
+
 ```javascript
 db.sales.find({$expr:{$gt: [{$cond: {if:{$gte: ["$volume", 190]}, then: {$subtract: ["$volume", 30]}, else: "$volume"}}, "$target"]}}).pretty()
 ```
@@ -292,16 +297,19 @@ db.movies.find().sort({"rating.average": 1, runtime: -1}).pretty()
 *Look up all potential stages on the mongoDB Aggregation Pipeline Stages docs*
 
 ## $match
+
 ```javascript
 db.people.aggregate([
   {$match: {gender:'female'}}
 ])
 ```
+
 *Returns all females*
 
 ---
 
 ## $sort
+
 ```javascript
 db.people.aggregate([
   {$match: {gender:'female'}},
@@ -309,12 +317,14 @@ db.people.aggregate([
   {$sort: {totalPersons: -1}}
 ])
 ```
+
 ---
 
 ## $group
 **You must keep in mind that you are performing operations they are being performed on each group created by the first field group**
 *You must pass an id as a document that will describe what feild will be grouped*
 *totalPersons is a field that we made that will give us the the number of documents that we merged*
+
 ```javascript
 db.people.aggregate([
   {$match: {gender:'female'}},
@@ -326,10 +336,12 @@ db.people.aggregate([
 { _id: { state: 'alaska' }, totalPersons: 4 }
 { _id: { state: 'rio grande do norte' }, totalPersons: 8 }
 ```
+
 ---
 
 ## $project
 **Performs the operations on each specific document**
+
 ```javascript
 db.people.aggregate([
 {$project:{_id:0, name:1, gender:1, email:1,dob:1, location:{type:"Point", coordinates:[
@@ -355,6 +367,7 @@ db.people.aggregate([
   fullName: 'Anne Ruiz',
   birthdate: 1982-10-09T12:10:42.000Z }
 ```
+
 ---
 
 ## Distinction between group and project
@@ -382,6 +395,7 @@ db.people.aggregate([
 - $max & $min
 
 - ## Merging references
+
 ```javascript
 db.customers.aggregate([
 {$lookup:{
@@ -398,15 +412,18 @@ db.customers.aggregate([
 
 ## Aggregation and Arrays
 ### Combining array values
+
 ```javascript
 db.friends.aggregate([
   {$group: {_id:{age: "$age"}, allHobbiesNameIMadeUp: {$push:"$hobbies"}}}
 ])
 ```
+
 - The problem with the above code is that if hobbies is an array 'Which it is in this case'. The allHobbiesNameIMadeUp feild will be an ugly array of arrays, which we don't want
 
 **Solution: $unwind aggregation stage**
 *The below code will map through each item in the array and make a new document with one value for hobbies*
+
 ```javascript
 db.friends.aggregate([
   {$unwind: "$hobbies"}
@@ -421,6 +438,7 @@ db.friends.aggregate([
 ```
 
 #### The Above Returns:
+
 ```javascript
 { _id: { age: 29 },
   allHobbiesNameIMadeUp: [ 'Sports', 'Cooking', 'Cooking', 'Skiing' ],
@@ -432,6 +450,7 @@ db.friends.aggregate([
 
 ### Eliminating duplicate values
 *$addToSet*
+
 ```javascript
 db.friends.aggregate([
   {$unwind: "$hobbies"}, 
@@ -442,6 +461,7 @@ db.friends.aggregate([
 ### Array Projections
 - **$slice: [anArray, howManyElementsYouWant]**
 - **$slice: [anArray, startingPosition, numberOfElementsYouWantAfterTheStartingPosition]**
+
 ```javascript
 db.friends.aggregate([
 {$project: {_id:0, examScore: {$slice: ["$examScores", -1]}}}
@@ -449,6 +469,7 @@ db.friends.aggregate([
 ```
 
 - **$filter**
+
 ```javascript
 db.friends.aggregate([
 {$project: {_id:0, score: {$filter:{input: "$examScores", as: "sc", cond: {$gt: ["$$sc.score", 60]}}}}}
@@ -456,6 +477,7 @@ db.friends.aggregate([
 ```
 
 - *Example*: **Getting the highest score for each user only**
+
 ```javascript
 db.friends.aggregate([
   {$unwind: "$examScores"}, 
@@ -468,6 +490,7 @@ db.friends.aggregate([
 
 ## $geoNear
 **Must be the first stage in the pipeline if you want to use it**
+
 ```javascript
 db.friends.aggregate([
 {$geoNear:{
@@ -487,6 +510,7 @@ db.friends.aggregate([
 ```
 
 ## $bucket 
+
 ```javascript
 db.people.aggregate([
   {
@@ -509,6 +533,7 @@ db.people.aggregate([
 ```
 
 ### $bucketAuto
+
 ```javascript
 db.people.aggregate([
   {$bucketAuto:{
@@ -617,6 +642,7 @@ db.friends.aggregate([
 *Different from a text index*
 **When you are using search you definitely want to use limit right after search if you are planning on limiting your results**
 **We have meta data that is useful when we implement the search feature**
+
 ```javascript
 {
       $search:{
@@ -786,6 +812,7 @@ hashing a password is different you have to do that like you have done in the pa
 
 ## Transactions
 **How you insure you delete things linked to a user or anything for that matter when you delete the user document**
+
 ```javascript
 const variable = db.getMongo().startSession()
 
@@ -804,8 +831,9 @@ variable.commitTransaction()
 
 # Drivers
 
-# *Node*
+# *Node/ Express server*
 ## Initializing Connection
+
 ```javascript
 const { MongoClient } = require("mongodb");
 // Replace the uri string with your connection string.
@@ -854,6 +882,7 @@ module.exports = {
 
 ## Making queries
 **Important you can not use regular syntax in javascript**
+
 ```javascript
     // const result = await database.collection('products').updateOne({ _id: ObjectId(req.params.id) }, { $set: { updatedProduct } });
     // You cannot use $set with an object. You need to use $set with a key value pair. Javascript uses short hand object syntax here
@@ -865,7 +894,9 @@ module.exports = {
     // } }}
     const result = await database.collection('products').updateOne({ _id: ObjectId(req.params.id) }, { $set: updatedProduct });
 ```
+
 ### Interesting Result Options
+
 ```javascript
     const result = await database.collection('yourCollectionName').insertOne(item);
     console.log(`item added: ${result.insertedId}`);
@@ -907,6 +938,7 @@ router.get('/', async (req, res, next) => {
 ```
 
 ## Pagination
+
 ```javascript
  const queryPage = +req.query.page
   const pageSize = 2;
@@ -934,7 +966,103 @@ router.get('/', async (req, res, next) => {
 - Make sure you hash and salt variables for passwords 
 - Use status 401 conditionals on the front end to properly handle login errors
 
-## Realm 
+
+# *Next Js*
+
+```javascript
+// in lib/mongodb.ts
+
+import { MongoClient } from 'mongodb'
+import { production } from 'config/index'
+
+if (!production.db) {
+    throw new Error('Invalid environment variable: "MONGODB_URI"')
+}
+
+const uri = production.db
+const options = {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+}
+
+let client
+let clientPromise: Promise<MongoClient>
+
+if (!production.db) {
+    throw new Error('Please add your Mongo URI to .env.local')
+}
+
+if (process.env.NODE_ENV === 'development') {
+    // In development mode, use a global variable so that the value
+    // is preserved across module reloads caused by HMR (Hot Module Replacement).
+    if (!global._mongoClientPromise) {
+        client = new MongoClient(uri, options)
+        global._mongoClientPromise = client.connect()
+    }
+    clientPromise = global._mongoClientPromise
+} else {
+    // In production mode, it's best to not use a global variable.
+    client = new MongoClient(uri, options)
+    clientPromise = client.connect();
+}
+
+// Export a module-scoped MongoClient promise. By doing this in a
+// separate module, the client can be shared across functions.
+export default clientPromise
+```
+
+## Making queries in routes
+
+```javascript
+import clientPromise from 'lib/mongodb';
+import { NextApiRequest, NextApiResponse } from 'next';
+
+
+const getEvents = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+        const client = await clientPromise;
+        const db = client.db("wrestling_event_planner");
+
+        const events = await db
+            .collection("events")
+            .find({})
+            .toArray();
+
+        res.json(events);
+    } catch (e) {
+        console.error(e);
+    }
+};
+
+
+export default getEvents;
+```
+
+## Making Queries In get server side props
+
+```javascript
+export async function getServerSideProps() {
+    try {
+        const client = await clientPromise;
+        const db = client.db("wrestling_event_planner");
+
+        const movies = await db
+            .collection("events")
+            .find({})
+            .limit(20)
+            .toArray();
+
+        return {
+            props: { movies: JSON.parse(JSON.stringify(movies)) },
+        };
+    } catch (e) {
+        console.error(e);
+    }
+}
+```
+
+
+# Realm 
 *used to be called Stitch*
 **Serverless Platform for Building Applications**
 - Set up realm linked to your database
@@ -942,6 +1070,7 @@ router.get('/', async (req, res, next) => {
 - Then set up your authentication
 - Then you add your collections *I am not sure if you need to do this*
 - Then Make your functions
+
 ```javascript
 exports = function(arg){
 
@@ -950,9 +1079,11 @@ exports = function(arg){
   return collection.findOne({_id: BSON.ObjectId(arg)});
 };
 ```
+
 - yarn add realm-web *import * as Realm from realm-web*
 - In your app useEffect
 - **Keep in mind requests might return ObjectType or int128 types that javascript does not know how to handle**
+
 ```javascript
   useEffect(async () => {
     // add your Realm App Id to the .env.local file
@@ -970,10 +1101,11 @@ exports = function(arg){
   }, []);
 ```
 
-### Search 
+## Search 
 *Different from a text index search* You can set up a serverless function search
 1. You make a search index via atlas
 2. Make a new function that looks like this
+
 ```javascript
 exports = function(arg){
 
@@ -998,9 +1130,10 @@ exports = function(arg){
 };
 ```
 
-### Email/Password auth with email confirmation
+## Email/Password auth with email confirmation
 1. You must enable this setting in authorization **Make sure you set up the confirmation and reset url's _will explain later_**
 2. Register User
+
 ```javascript
 import { useState, useEffect } from 'react';
 import * as Realm from 'realm-web';
@@ -1072,7 +1205,9 @@ export default function Register() {
     );
 }
 ```
+
 3. Email Confirmation
+
 ```javascript
 import { useState, useEffect } from 'react';
 import * as Realm from 'realm-web';
@@ -1116,7 +1251,9 @@ export default function Confirm() {
 
 }
 ```
+
 4. Login
+
 ```javascript
 import { useState, useEffect } from 'react';
 import * as Realm from 'realm-web';
@@ -1191,6 +1328,7 @@ export default function Login() {
     );
 }
 ```
+
 5. Making certain Functions only available to authenticated users
 
 

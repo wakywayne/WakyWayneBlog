@@ -17,6 +17,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ----------
 
 ### What our regular example response will look like 
+
 ```json
 {
     "items": [
@@ -54,6 +55,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > The template variable is how your request will be displayed. We use the **#each** key word to let postman know we want to map through all of the  items in that array. If we have another array we want to map through we just use the **#each** key word again. 
 
 ## In the tests tab on postman request
+
 ```handlebars
 let template = `
 <ol>

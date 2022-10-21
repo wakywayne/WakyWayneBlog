@@ -11,6 +11,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 
 # CSS
+
 ```css
 .header {
   display: flex;
@@ -72,6 +73,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ```
 
 # html
+
 ```html
 <header className={styles.header}>
       <div className={styles.logo}>

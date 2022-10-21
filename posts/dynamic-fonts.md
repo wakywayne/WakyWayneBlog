@@ -11,6 +11,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ### This code will have your fonts dynamically size with your screen sizes *I use it in almost every one of my projects*
 
 # Dynamic Fonts
+
 ```css
 body{
   background-color: ;

@@ -13,6 +13,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ## Integrate Cloudinary
 1. yarn add strapi-provider-upload-cloudinary
 2. make a plugins.js file in config folder
+
 ```javascript
       module.exports = ({ env }) => ({
           upload: {
@@ -43,10 +44,12 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
           },
       });
 ```
+
 3. Go to cloudinary and add the env variables to strapi in .env
 
 ## Doing a Search for Multiple Queries
 **Switch contains to containsi for a non case sensitive search**
+
 ```javascript
 export async function getServerSideProps({ query: { term } }) {
   const query = qs.stringify({
@@ -76,8 +79,10 @@ export async function getServerSideProps({ query: { term } }) {
     }
   })
 ```
+
 ## Creating Own Api Route in Strapi
 > **In backend go to _/src/api/events/routes/custom-event.js_** *I believe yo can name the last route anything*
+
 > ```javascript
 > "use strict";
 >  
@@ -96,10 +101,12 @@ export async function getServerSideProps({ query: { term } }) {
 >   ],
 > };
 > ```
+
 > *This handler should be in the format of the controller's  __"[file name].[method name]"__*
 > <hr/>
 > 
 > **Now in _[ /src/api/events/controllers/event.js ]_**
+
 > ```javascript
 > "use strict";
 >  
@@ -135,6 +142,7 @@ export async function getServerSideProps({ query: { term } }) {
 >   },
 > }));
 > ```
+
 > *Make sure you restart backend and allow the necessary permissions for your new route*
 
 ## GET
@@ -163,6 +171,7 @@ export async function getServerSideProps({ query: { term } }) {
     1. install *strapi-plugin-slugify*
     2. Settings > Roles > Public > Slugify (checkbox findSlug)
     3. In config/plugins.js
+
 ```javascript
             module.exports = ({ env }) => ({
                 slugify: {
@@ -178,7 +187,9 @@ export async function getServerSideProps({ query: { term } }) {
                 },
             });
 ```
+
 - uploading images to content type
+
 ```javascript
             const handleSubmit = async (e) => {
         e.preventDefault()
@@ -212,6 +223,7 @@ export async function getServerSideProps({ query: { term } }) {
 # Authentication
 **Hit route _api/auth/local/register_**
 ## Object that you send
+
 ```javascript
 {
     "username": "name",
@@ -232,6 +244,7 @@ export async function getServerSideProps({ query: { term } }) {
   - heroku config *this will show you database url*
 5. yarn add pg-connection-string pg
 6. In config folder create file structure env/production/database.js *the database folder in root is for local only*
+
 ```javascript
       const parse = require('pg-connection-string').parse;
       const config = parse(process.env.DATABASE_URL);
@@ -252,7 +265,9 @@ export async function getServerSideProps({ query: { term } }) {
           },
       });
 ```
+
 7. In the same folder as database.js make a server.js file
+
 ```javascript
       module.exports = ({ env }) => ({
         proxy: true,
@@ -262,11 +277,13 @@ export async function getServerSideProps({ query: { term } }) {
         },
       })
 ```
+
 8. heroku config:set NODE_ENV=production
 9. heroku config:set MY_HEROKU_URL=$(heroku info -s | grep web_url | cut -d= -f2)
   - *This sets MY_HEROKU_URL to what the web url is*
 10. **IMPORTANT** In .env you will see APP_KEYS copy the value and paste one at a time into config/server.js
   - *Should look something like this*
+
 ```javascript
         module.exports = ({ env }) => ({
         host: env('HOST', '0.0.0.0'),
@@ -276,4 +293,5 @@ export async function getServerSideProps({ query: { term } }) {
         },
       });
 ```
+
 11. You must reset the permissions in the production database

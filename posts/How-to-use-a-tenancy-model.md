@@ -11,6 +11,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 # Why use a tenancy Model?
 > The reason why you would use a tenancy model is if you need to group users and only allow them to edit, view, or get updated based on a shared value like *team or *organization*. The way this works is every table or collection in your database that needs to be grouped will have a tenant value. This tenant value will be put on each user's token and you will then test for it before doing updates or showing data.
 ## Example
+
 ```javascript
 router.get("/getUserMessages/:tenant", async (req, res) => {
   try {

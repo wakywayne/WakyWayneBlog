@@ -10,6 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Here is code that I use to handle potential database disconnects
 **I used this on heroku, but you could probably use it for other database hosting providers**
+
 ```javascript
 import * as mysql from "mysql";
 import config from "../config";

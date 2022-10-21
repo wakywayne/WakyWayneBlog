@@ -9,6 +9,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 # How to make multiple unique states that are created vis a map in react
+
 ```javascript
     const [arrayOfStuff, setArrayOfStuff] = React.useState([1, 2, 3]);
     const [theText, setTheText] = useState({});

@@ -16,6 +16,7 @@ _import 'mapbox-gl/dist/mapbox-gl.css'_
 # Important
 ### Your env variables must be as follows:
 *I found the most success directly linking the variable and not using config file*
+
 ```javascript
 react: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 next: process.env.NEXT_PUBLIC_MAPBOX_TOKEN

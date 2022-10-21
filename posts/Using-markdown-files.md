@@ -14,6 +14,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 ## this is what front matter looks like
 *It basically allows you to use props in your MD files*
+
 ```
 ---
 title: 'Django Crash Course'
@@ -29,6 +30,7 @@ author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
 1. Import matter from gray-matter
 2. Get Paths *If needed* 
 3. Pull your frontmatter
+
 ```javascript
         export async function getStaticPaths() {
             const files = fs.readdirSync(path.join('projects'));
@@ -64,6 +66,7 @@ author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
             }
         }
 ```
+
 4. Use your frontmatter on the front end
     - Below I show you marked which is a markdown parser [npm page for marked](https://www.npmjs.com/package/marked)
 

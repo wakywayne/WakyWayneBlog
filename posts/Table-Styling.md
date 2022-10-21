@@ -9,6 +9,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 # This is a great starter for styling you tables
+
 ```css
 .upcoming-table {
   margin: 25px 0;

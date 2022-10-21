@@ -10,6 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # A complex version that might have trouble being squeezed into a layout
 **Good for using colors**
+
 ```css
   /* blockquote */
   #myBlockQuote {
@@ -107,6 +108,7 @@ blockquote p {
   <div class="line"></div>
 </div>
 ```
+
 
 ```css
 .background {

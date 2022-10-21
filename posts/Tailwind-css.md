@@ -18,6 +18,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Rules
 - If you want to dynamically add a class via javascript you must add safelist
+
 ```javascript
   safelist: [
     'bg-yellow-600',
@@ -38,6 +39,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 ## Headings
 *In css file under your @'s*
+
 ```javascript
 @layer base{
   h2{
@@ -53,15 +55,18 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ## Making breakpoints on screen
 1. add require require("tailwind-debug-screens") to plugins
 2. In theme add 
+
 ```
     debugScreens:{
       position: ['top','left'],
     }  
 ```
+
 3. In your main body tag add class debug-screens
 
 ## Customizing your breakpoints with a container class
 tailwind config.js
+
 ```javascript
 corePlugins:{
   container: false;
@@ -94,6 +99,7 @@ theme:{
 ## Adding custom fonts
 1. create fonts folder
 2. In styles 
+
 ```javascript
     @layer base{
       @font-face{
@@ -105,6 +111,7 @@ theme:{
 
 3. Under theme in tailwind.config.js
 *Under theme*
+
 ```javascript
        extend:{
          fontFamily:{
@@ -116,6 +123,7 @@ theme:{
 
 ## Custom Colors
 *Under theme in tailwind.config.js*
+
 ```javascript
 extend:{
   colors:{
@@ -127,6 +135,7 @@ extend:{
 ## Building your own palets entirely
 1. add full color package
   - in cofig file: const colors = require("tailwindcss/colors") *at the very top*
+
 ```javascript
       colors:{
         red: colors.rose,
@@ -136,6 +145,7 @@ extend:{
 
 ## Making Custom Container class
 *Probably easier to use tailwind css file, but this is an option*
+
 ```javascript
 container:{
   center: true,
@@ -148,12 +158,14 @@ container:{
   }
 }
 ```
+
 ## Typography Plugin
 **class prose**
 
 ## Making you outsource file 
 1. Save tailwind config file and rename it
 2. In module.exports
+
 ```javascript
     presets: [
       require('./myFileName.js'),
@@ -238,6 +250,7 @@ bg-gradient-to-tr *background gradient towards top right*
 ## Grid
 ### Using useful utility class
 **yarn add -D @shrutibalasa/tailwind-grid-auto-fit**
+
 ```javascript
 // in tailwind.config.js
 plugins: [require('@shrutibalasa/tailwind-grid-auto-fit')],
@@ -245,6 +258,7 @@ plugins: [require('@shrutibalasa/tailwind-grid-auto-fit')],
 ```
 
 *What is going on under the hood*
+
 ```css
 .container{
   display: grid; /*You must apply this before using package*/

@@ -16,13 +16,16 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 - "mongoose": "^6.4.0"
 
 ### Server
+
 ```javascript
 app.use('/graphql', graphqlHTTP({
     schema: require('./schema/schema.js'),
     graphiql: process.env.NODE_ENV == 'development'
 }));
 ```
+
 ### Schemas and Stuff
+
 ```javascript
 const {
     GraphQLObjectType,
@@ -41,6 +44,7 @@ const Client = require('../models/Client');
 
 ## Types
 **This is like the schema**
+
 ```javascript
 // Project Type
 const ProjectType = new GraphQLObjectType({
@@ -73,6 +77,7 @@ const ClientType = new GraphQLObjectType({
 
 ## Queries
 **Important note Client and Project refer to our mongoose schemas**
+
 ```javascript
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
@@ -108,6 +113,7 @@ const RootQuery = new GraphQLObjectType({
 ```
 
 ## Mutations
+
 ```javascript
 // Mutations
 const mutation = new GraphQLObjectType({
@@ -229,8 +235,10 @@ module.exports = new GraphQLSchema({
     mutation,
 });
 ```
+
 # Frontend
 ## Setting up the provider
+
 ```javascript
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
@@ -279,7 +287,9 @@ function App() {
   );
 }
 ```
+
 ## Making Queries
+
 ```javascript
 import { gql } from '@apollo/client';
 
@@ -300,6 +310,7 @@ export {
 ```
 
 ## Using Queries in Your Component
+
 ```javascript
 import { useQuery } from '@apollo/client';
 import { GET_PROJECT } from '../queries/projectQueries';
@@ -338,6 +349,7 @@ export default function Project() {
 ```
 
 ## Using Mutations in your component
+
 ```javascript
 import { FaTrash } from 'react-icons/fa';
 import { useMutation } from '@apollo/client';
@@ -378,7 +390,9 @@ export default function ClientRow({ client }) {
     );
 }
 ```
+
 ### The above mentioned app.js code
+
 ```javascript
 const cache = new InMemoryCache({
   typePolicies: {
@@ -559,6 +573,7 @@ fragment companyDetails on Company{
 **This is because you have to use a resolve to describe the relation you are trying to get**
 
 ### One to one relation
+
 ```javascript
 const CompanyType = new GraphQLObjectType({
     name: 'Company',

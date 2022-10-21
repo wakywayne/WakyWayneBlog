@@ -10,6 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # e.stopPropagation();
 > e.stopPropagation() Stops the passing down of onClick events of parent elements being triggered by children elements so you can keep them separate here is an example below 
+
 ```html
  <li style={{ cursor: "pointer" }} onClick={(e) => { setEventSolutions(!eventSolutions); setEventSolutionsBracketing(false); setEventSolutionsWarZone(false); setEducation(false) }}>
 <!-- Without the e.stopPropagation(); the above onClick event will trigger every time and mess up the functionality -->

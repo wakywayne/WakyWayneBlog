@@ -52,19 +52,23 @@ React.Fragment tags)
 >
 > ## Conditional Short Hands
 > ### Truthy Falsy
+
 > ```javascript
 >  let bool = "text"; 
 >   if(bool){
 >      consol.log('This will log');
 >  }
 >  ```
+
 > ### Logical and operator
 > 
 >  ```javascript
 >  let responseText = '';
 >  console.log(responseText && `This is the response that won't be shown ${responseText}`);
 >  ```
+
 > ### Turnarary Opertor
+
 >  ```javascript
 >  let score = 0;
 >  let finalMessage = (score > 60) ? 'Congratulations u passed` : 'You did not pass';
@@ -74,6 +78,7 @@ React.Fragment tags)
 
 ## Controlled React Input *React.useState*
 > **It's an input who's value is tied to a piece of react state and it has an onChange that updates that state**
+
 > ```javascript
 > import React from 'react';
 > 
@@ -98,9 +103,11 @@ React.Fragment tags)
 > }
 > export default Practice;
 > ```
+
 # Hooks
 > **Used above return statement and can't be used  in another function (Only in our main component function)**
 > ## Use State
+
 > ```javascript
 > const App = () => {
 > 
@@ -124,6 +131,7 @@ React.Fragment tags)
 > 
 > ## Use Effect *React.useEffect*
 > **Code you want to run as a side effect of a re-render**
+
 > ```javascript 
 > const App =() => {
 >     const [count, setCount] = useState(0);
@@ -152,6 +160,7 @@ React.Fragment tags)
 > ## useRef
 > *Mainly used to access a particular element in the DOM*
 > **You can override refs by using useImperativeHandle()**
+
 > ```javascript
 > import { useState, useEffect, useRef } from "react";
 > import CustomInput from "./CustomInput";
@@ -215,6 +224,7 @@ React.Fragment tags)
 > 
 > export default AppStateProvider;
 > ```
+
 > *This is how you import the context from one of your wrapped components*
 >
 > ```javascript
@@ -227,6 +237,7 @@ React.Fragment tags)
 > Need to learn better
 >
 > ## useCallback()
+
 > ```javascript
 > const handleButtonClick = () =>{
 >     console.log(counter) // this will always be one
@@ -252,6 +263,7 @@ React.Fragment tags)
 
 # Lists
 > **When dealing with arrays and lists you must give each a unique key prop so it knows how to re-render if state changes**
+
 > ```javascript
 > const App = () =>{
 >     const myList= ['one','two','three'];
@@ -269,7 +281,9 @@ React.Fragment tags)
 >     );
 > };
 > ```
+
 > *Cool way to useReducer*
+
 > ```javascript
 > function  reducerFunc(state, dispatchAction){
 >     switch(dispatchAction.type){
@@ -294,20 +308,25 @@ React.Fragment tags)
  # React-router-dom
 > **BrowserRouter Routes Route Navigate**
 > ## When making more than one route navigate to a page
+
 > ```javascript
 > <Route to="something" element={<The/>}/>
 > <Route to="somethingElse" element={<Navigate replace to="<The/>"/>}/>
 > ```
+
 > ## Outlets
 > **Outlets allow nested routes an exit point on the parent routes page**
+
 > ```javascript
 > Function Component(){
 >     return(<h1>Component</h1> <Outlet/>)
 >     // Children routes will be displayed after the h1
 > }
 > ```
+
 > ## useParams
 > **Must be nested in parent route**
+
 > ```javascript
 > {
 > <Route to="/some" element={<Element/>}>
@@ -322,7 +341,9 @@ React.Fragment tags)
 > }
 > }
 > ```
+
 > ## NavLink is active
+
 > ```javascript
 > <NavLink to="whatever/path" style={{({isActive})=>{
 >     return(
@@ -332,6 +353,7 @@ React.Fragment tags)
 > ```
 > 
 > ### useNavigate & useLocation
+
 > ```javascript
 > Function Element(){
 >     const {nameOfParam} = useParams();
@@ -351,13 +373,16 @@ React.Fragment tags)
 > }
 > 
 > ```
+
 > *Links also can pass information*
+
 > ```javascript
 > <Link to="/theroute" state={variableThatIsPassed}/>
 > ```
 
 # Catching errors to stop your app from crashing
 **You must use a class based component**
+
 ```javascript
 class ErrorBoundary extends React.Component {
   constructor(props) {

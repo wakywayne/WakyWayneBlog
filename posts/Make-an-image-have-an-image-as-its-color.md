@@ -9,6 +9,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 # Text Color Image
+
 ```css
 h1{
   background-image:url('Stuff');

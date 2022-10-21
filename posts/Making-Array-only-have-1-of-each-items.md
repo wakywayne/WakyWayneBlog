@@ -10,6 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Making Array only have 1 of each items
 **uniqueCategories should be the name of the array** 
+
 ```javascript
       const uniqueCategories = [...new Set(categories)]
 ```

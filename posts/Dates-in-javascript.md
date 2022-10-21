@@ -14,6 +14,7 @@ author_image: ''
 ## Useful Tips
 > When you are dealing with calculations with dates you should convert dates to unix standard time and do all your calculations. The last thing you should do with your dates is convert them back to date time format. *Examples Below*
 ### Examples of getting yesterdays date in utc format
+
 ```javascript
 let today = new Date();
 let yesterday = new Date(today);
@@ -26,6 +27,7 @@ console.log(yesterdayUnix);
 ```
 
 ## Creating date objects
+
 ```javascript
 // Current Date And Time
 d = new Date();
@@ -37,14 +39,18 @@ d = new Date("2022-08-02T11:30:00+10:00");
 // If you don't provide one of the options it will default to the first value
 d = new Date(2022, 7, 2, 11, 30, 27, 0);
 ```
+
 ## IMPORTANT
 **If you want to crate a date without any time**
+
 ```javascript
 d = new Date("2022-08-02");
 // This will give you Mon Aug 01 2022 20:00:00 GMT-0400 (Eastern Daylight Time)
 // As you can see there is a time after the date which will cause a lot of issues and inconsistencies as the date will not act as you expect
 ```
+
 **The solution to the above issue is..**
+
 ```javascript
 let example2 = d = new Date("2022-08-02 ");
 // By adding a space to the end of date you will now get
@@ -52,8 +58,10 @@ let example2 = d = new Date("2022-08-02 ");
 // Now the time is zero'd out and will act as expected
 ```
 
+
 ## Getters
 **When you use a getter it is in the devices local timezone _Keep this in mind_**
+
 ```javascript
 d.toString()
 d.getFullYear()
@@ -65,4 +73,5 @@ d.toLocalString("en-US", {
 })
 // ^ The above code first sets the date order and then the timezone
 ```
+
 For example some countries list the year first, *that's what the "en-US" determines*

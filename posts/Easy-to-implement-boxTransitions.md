@@ -19,11 +19,14 @@ _I regularly use this code in my applications to add a little motion to the page
 ----------------
 
 > **Html Code**
+
 >```html
 ><div class="box-wrapper loading"><div class="box"></div></div>
 ><div class="box-wrapper loading"><div class="box"></div></div>
 >```
+
 > **CSS Code**
+
 >```css
 >body {
 >  overflow-x: hidden;
@@ -39,7 +42,9 @@ _I regularly use this code in my applications to add a little motion to the page
 >  transform: translate(-100%);
 >}
 >```
+
 > **Javascript Code**
+
 >```javascript
 >$(".box-wrapper").each(function (index, element) {
 >  setTimeout(function () {
@@ -51,6 +56,7 @@ _I regularly use this code in my applications to add a little motion to the page
 ## React Code
 
 **javascript**
+
 ```javascript
 // Your entry component: App
 
@@ -89,6 +95,7 @@ export default App;
 ```
 
 **css**
+
 ```css
 /* Place this in index.css */
 

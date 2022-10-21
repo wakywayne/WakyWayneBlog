@@ -25,12 +25,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 - outDir *determines where you compiled code will go*
 - the include array determines what files should be compiled 
 - If you install package that doesn't have types *make a file filename.d.ts*
+
 ```typescript
         declare module 'filename' {
             export function someFn():number;
         }
 ```
+
 - When using react you should make a source map so you can accurately match error lines correctly webpack.config.js
+
 ```javascript
         const htmlWebpackPlugin = require('html-webpack-plugin');
         const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -80,6 +83,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Types
 >## Primitive Types
+
 > ```typescript
 > let id: number = 5
 > let company: string = 'Traversy Media'
@@ -88,7 +92,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > let x: null = null
 > 
 > ```
+
 >## non-Primitive Types
+
 > ```typescript
 > const myObj: object = {}
 > const myObj: object = []
@@ -100,12 +106,14 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 ## Union
+
 > ```typescript
 > let pid: string | number
 > pid = '22'
 > ```
 
 # Tuple/ Array
+
 > ```typescript
 > let person: [number, string, boolean] = [1, 'Brad', true]
 > // Tuple Array
@@ -121,6 +129,8 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Enum
 **returns the index of the "object"(Direction1) can change default by reassigning up to one**
+
+
 >```typescript
 >enum Direction1 {
 >  Up = 1,
@@ -145,6 +155,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >```
 
 # Objects
+
 > ```typescript
 > type User = {
 >   id: number
@@ -158,6 +169,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 # Type Assertion(as)
+
 > ```typescript
 > let cid: any = 1
 > // let customerId = <number>cid
@@ -167,6 +179,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 # Functions
+
 > ```typescript
 > function addNum(x: number, y: number): number {
 >   return x + y
@@ -180,12 +193,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >
 > ## Void
 > **Means it won't return anything**
+
 > ```typescript
 > function log(message: string | number): void {
 >   console.log(message)
 > }
 > ```
+
 > ## Making an interface that describes a function
+
 > ```typescript
 > interface Sum{
 >    (a:number, b:number): number;
@@ -206,6 +222,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 # Interfaces
+
 > ```typescript
 > interface UserInterface {
 >   readonly id: number
@@ -233,6 +250,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > interface Example extends UserInterface, PersonInterface {}
 >
 > ```
+
 > ## Merging interfaces
 >*By re-declaring an interface with the same name as a previous one you add the new properties too it kinda like css honestly because you can also over  ride properties as well*
 
@@ -264,7 +282,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > const brad = new Person(1, 'Brad Traversy')
 > const mike = new Person(2, 'Mike Jordan')
 > ```
+
 > ## Sub Classes
+
 > ```typescript
 > class Employee extends Person {
 >   position: string
@@ -279,6 +299,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 >
 ## Using setters and getters
+
 > ```typescript
 > class A{
 >     private _amount: number
@@ -300,6 +321,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > *You can not use the same interface for the __static__ and __instance__ side
 > For the static side we can only describe the constructor 
 > For the instance side we can only describe the public properties 
+
 > ```typescript
 > interface Animal{
 >     name: string;
@@ -346,6 +368,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 # Generics
+
 > ```typescript
 > // Generic Functions
 > function genericFunction<T>(x: T): T {
@@ -428,7 +451,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >     }
 > }
 > ```
+
 > ## For Object Params 
+
 > ```typescript
 > interface Cat{
 >     walk(): void;
@@ -466,7 +491,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >
 >
 >```
+
 >  ## For classes
+
 >  ```typescript
 > class Foo{
 >     foo: number;
@@ -485,7 +512,9 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >     }
 > }
 > ```
+
 # Intersection Type
+
 > ```typescript
 > interface IA{
 >     a: number;
@@ -505,22 +534,27 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Type Alias
 > **You will probably use this with the utilities mostly**
+
 >```typescript
 >type StringArrayOrNull = string | string[] | null;
 >type twoObjects = {a:number} & {b: number};
 >type GenericArray<T> = T[];
 >```
+
 ># Using module without types
 >**In type.d.ts file**
+
 >```typescript
 >declare module 'react'{
 >    export function anyFunctionsItmightHave(): number;
 >}
+>```
 
 # Utilities
 
 > ## Partial
 > **Makes all parts of the interface optional**
+
 > ```typescript
 > interface Starship{
 >     name: string;
@@ -533,6 +567,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >     // if you don't have the partial option it will expect you to declare all the parameters
 > })
 > ```
+
 > ## Required
 > **Opposite of Partial**
 > 
@@ -541,6 +576,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >
 > ## Record
 > **Used to describe an object thats key values are another object that you want to describe with an interface**
+
 > ```typescript
 > interface ButtonProps{
 >     size?: ButtonSize;
@@ -572,6 +608,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 > 
 > ## Pick
+
 > ```typescript
 > interface Starship{
 >     name: string;
@@ -582,6 +619,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 > 
 > ## Omit
+
 > ```typescript
 > interface Starship{
 >     name: string;
@@ -593,6 +631,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > 
 > ## Exclude
 > **Like omit but you use it with type aliases**
+
 > ```typescript
 >  type thing = string|string[]|number;
 > 
@@ -600,6 +639,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >  ```
 > 
 > ## Extract
+
 > ```typescript
 >  type thing = string|string[]|number;
 > 
@@ -607,11 +647,13 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > 
 > let otherOhing: Extract<thing, other> ="This will only extract the things that the thing has that matches with other";
 >  ```
+
 > ## NonNullable
 > **Makes sure that the property that gets passed in cannot be null or undefined _if we have strict null check on this will only be possible with optional types_**
 >
 > ## ReturnType
 > **Gets you the return value of a function**
+
 > ```typescript
 > 
 >     interface StarshipProperties{
@@ -631,13 +673,16 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > 
 > ## InstanceType
 > **Allows you to get the types of a variable ie const**
+
 > ```typescript
 > const DeleteableUser = Deletable(User);
 > 
 > type deletableUserInstance = InstanceType<typeof DeleteableUser>;
 > ```
+
 > ## ThisType
 > **Allows you to describe the this keyword in a function** *Must turn no implicit this on for this to work*
+
 > ```typescript
 > type ObjectDescriptor<D, M> = {
 >     data?:D;
@@ -648,6 +693,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Mapping Through types
 > **Honestly don't get this very well at all**
+
 > ```typescript
 > type Properties = 'propA' | 'propB';
 > 
@@ -661,6 +707,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 
 # Conditional Type
+
 > ```typescript
 > 
 > type Astring = string;
@@ -679,6 +726,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Infer type
 > **Used to infer the type of something**
+
 > ```typescript
 > type inferSomething<T> = T extends U ? U : any;
 > 
@@ -693,12 +741,15 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 # Events
 > ## Finding what kind of event it is
 > **Hover over the input in the function**
+
 > ```typescript
 > onChange={(e) => {const input = e.currentTarget}}
 > // or try hovering in the onClick
 > ```
+
 > ## Specifying what the click is on
 > **e.target can be any HTML element that gets clicked on thus we have to specify, if we expect it to know what it is clicking on**
+
 > ```typescript
 > handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 >         console.log(e.target);
@@ -721,6 +772,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >         this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
 >     }
 > ```
+
 > ### Other DOM events
 > 
 > ```typescript
@@ -766,6 +818,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # useState
 > ### How to type state
+
 > ```typescript
 > interface AppStateValue {
 >   cart: {
@@ -783,6 +836,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > ```
 
 > ### Use this trick to get the type of the setState
+
 > ```typescript
 > export const AppSetStateContext = createContext<>(undefined);
 > 
@@ -793,6 +847,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # useContext
 > **Make sure you always use two separate contexts for the state and the state setter**
+
 > ```typescript
 > import React, { createContext, useState, useContext } from 'react';
 > 
@@ -842,6 +897,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 
 # High Order Components
+
 > ```typescript
 > /* 1. Defining the HOC */
 >  
@@ -894,6 +950,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >
 > ### Another Example
 > --------------
+
 > ```typescript
 > // HOC
 > export interface AddToCartProps {

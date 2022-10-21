@@ -12,6 +12,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 **You cannot use next export with api routes**
 **Use the standard req, res syntax in the api**
 - To allow or limit the kind of request you can use 
+
 ```javascript
             export default (req, res)=> {
                 if (req.method === 'GET'){

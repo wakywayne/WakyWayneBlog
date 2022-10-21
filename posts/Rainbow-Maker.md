@@ -9,6 +9,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 # Rainbow Maker
+
 ```javascript
   function generateHslaColors(saturation, lightness, alpha, amount) {
     let colors = []
@@ -36,6 +37,7 @@ makeDiv(c);
 ```
 
 # Here is the array of all hsla colors if you were curious :)
+
 ```javascript
   allHSLAcolors = ["hsla(0,100%,50%,1)",
         "hsla(1,100%,50%,1)",

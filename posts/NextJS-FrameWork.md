@@ -32,6 +32,7 @@ import dynamic from 'next/dynamic'
 
 ### Images
 - To use images from outside sources you must make a next.config.js file
+
 ```javascript
         module.exports = {
           images: {
@@ -43,6 +44,7 @@ import dynamic from 'next/dynamic'
 ### Modals
 *When the page renders you dont have acess to the window.document*
 - make a file called _document.js in pages
+
 ```javascript
         import Document, { Html, Head, Main, NextScript } from 'next/document'
 
@@ -68,7 +70,9 @@ import dynamic from 'next/dynamic'
 
         export default MyDocument
 ```
+
 - Then make a modal component
+
 ```javascript
         import { useState, useEffect } from 'react'
         import ReactDOM from 'react-dom'
@@ -111,7 +115,9 @@ import dynamic from 'next/dynamic'
 
         // https://devrecipes.net/modal-component-with-next-js/
 ```
+
 - CSS
+
 ```css
         .modal {
           background: white;
@@ -144,8 +150,10 @@ import dynamic from 'next/dynamic'
           background-color: rgba(0, 0, 0, 0.7);
         }
 ```
+
 ### Using backend functions
 __You can use backend function on the *"frontend"*, but you can only actually use them in your server functions at the bottom of the file__
+
 ```javascript
 export async function getStaticProps({ params }) {
     const slug = params.slug;
@@ -171,6 +179,7 @@ export async function getStaticProps({ params }) {
 - css is stored in module system Home.module.css
 - *Make a layout Component that will wrap each page*
 - *INce again they now have a built in layout system for this*
+
 ```javascript
         import Head from 'next/head'
         import { useRouter } from 'next/router'
@@ -212,8 +221,10 @@ export async function getStaticProps({ params }) {
               keywords: 'music, dj, edm, events',
             }
 ```
+
 - Also make a 404.js page this will be the new default
 - *Make a jsconfig.json*
+
 ```javascript
         {
           "compilerOptions": {
@@ -246,6 +257,7 @@ export async function getStaticProps({ params }) {
 >**You cannot use next export with api routes**
 >**Use the standard req, res syntax in the api**
 >- To allow or limit the kind of request you can use 
+
 > ```javascript
 >            export default (req, res)=> {
 >                if (req.method === 'GET'){
@@ -276,6 +288,7 @@ export async function getStaticProps({ params }) {
 >   }
 > }
 > ```
+
 > ## getStaticPaths()
 > **Creates dynamic routes looks at backend data (all the ids or slugs) and generates all the paths for those different routes _only works if your website is static_**
 > 
@@ -321,6 +334,7 @@ export async function getStaticProps({ params }) {
 # http only cookie method
 
 ## Using Context Component to handle auth logic
+
 ```javascript 
     // <!-- You should name this file AuthContext cuz thats what you wll actually import -->
         import { createContext, useState, useEffect } from 'react'
@@ -482,7 +496,9 @@ export default async (req, res) => {
   }
 }
 ```
+
 ## Set cookie / login <u>backend</u> route
+
 ```javascript
 import cookie from 'cookie'
 import { API_URL } from '@/config/index'
@@ -570,6 +586,7 @@ export default async (req, res) => {
 
 
 *You would hit this api end point in auth context*
+
 ```javascript
 
 useEffect(()=> checkUserLoggedIn(), [])

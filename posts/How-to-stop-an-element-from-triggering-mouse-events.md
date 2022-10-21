@@ -9,6 +9,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
 
 # How to stop an element from triggering mouse events
+
 ```css
     button>* {
         pointer-events: none;

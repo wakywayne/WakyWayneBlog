@@ -12,6 +12,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---------------------------------
 
 ## Making paths from files
+
 ```javascript
 export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('posts'))
@@ -32,7 +33,9 @@ export async function getStaticPaths() {
     }
 }
 ```
+
 **The above code returns this:**
+
 ```javascript
 [
   {params:{pae_index:"1"}}
@@ -43,6 +46,7 @@ export async function getStaticPaths() {
 
 ## Using paths 
 *We destructor params*
+
 ```javascript
 export async function getStaticProps({ params }) {
     const page = parseInt((params && params.page_index) || 1)
@@ -75,6 +79,7 @@ export async function getStaticProps({ params }) {
 ```
 
 ## Frontend Component
+
 ```javascript
 export default function BlogPage({ posts, numPages, currentPage, categories }) {
 
@@ -108,6 +113,7 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
 ```
 
 ## Pagination Component
+
 ```javascript
 import React from 'react'
 import Link from "next/link"

@@ -16,6 +16,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 > - Make sure to use alt tags when needed
 > - ### Important Header *You can add meta tags to your header to control how your site looks when shared on platforms*
 > - if you want your site to be shared on social look up their meta tags ie. facebook Insta and twitter *Use twitter card validator*
+
 > ```html
 >         <meta property="og:site_name" content="This is site name">
 >         <meta property="og:url" content="theURL">
@@ -23,6 +24,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 >         <meta property="og:image" content="theImage src or https">
 >         <meta property="og:description" content="This describes us">
 > ```
+
 > - Make sure your title accurately describes why someone might click on your site        
 > - Use schema.org to add meta attributes to all different html elements
 > - Get your page to load fast
@@ -48,6 +50,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
             },
         }
 ```
+
 4. Add your sitmaps to git ignore *this is because they will be generated at build*
 
 ```
@@ -55,6 +58,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
         public/sitemap.xml
         public/sitemap-0.xml
 ```
+
 5. If you need to generate dynamic Pages make a folder called server-sitemap.xml in it index.js or index.jsx file
 
 ```javascript

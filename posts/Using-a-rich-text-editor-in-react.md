@@ -10,6 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Basic Outline
 ### You only have to do the dynamic import in nextJS
+
 ```javascript
 import React from 'react';
 import dynamic from "next/dynamic";
