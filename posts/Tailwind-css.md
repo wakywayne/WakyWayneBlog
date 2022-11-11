@@ -53,7 +53,8 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 
 ## Making breakpoints on screen
-1. add require require("tailwind-debug-screens") to plugins
+*yarn add -D tailwindcss-debug-screens*
+1. add require require("tailwind-debug-screens") to plugins array in config
 2. In theme add 
 
 ```

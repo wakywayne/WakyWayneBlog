@@ -670,6 +670,15 @@ highlights: {$meta: 'searchHighlights'}
  // This will return an array of objects where if the type is hit you should highlight 
 ```
 
+### Standard versus Keyword analyzers
+- The standard analyzer will break words apart Manchester United will return both manchester and united results (*b-tree index*)
+- The keyword analyzer will keep it as a token Manchester United will be grouped as one token (*inverted index*)
+
+> This means that you should think about how your text search needs to be tokenized. Once you've done that you should look into which analyzer best fits those needs.
+#### Some useful resources to understand how search queries work
+- www.atlassearchsoccer.com
+- www.atlassearchindexes.com
+- www.atlassearchmovies.com
 
 # Geospatial Data
 **Must have location sub doc, with {type: "Point", coordinates: [longitude, latitude]} _You can look up correct GeoJSON format_**
@@ -718,6 +727,8 @@ highlights: {$meta: 'searchHighlights'}
   - updateOne(filter, {$set:{var: "the var"}}, {upsert: true}) 
 
 ## Updating nested arrays
+> $ is used to update the first matched element with whatever you are setting in the array. While $[] all positional operator will update all the documents in the weights array. If you need more granular control you add a variable to the brackets $[el] and then use an array filter at the end of your query
+
 - db.users.updateMany({hobbies: {$elemMatch: {title: "Sports", frequency: {$gte:3}}}}, {$set:{"hobbies.$.newField": }})
   - *The $ makes it so that it updates fields that match the query only. It basically represents the element that matches the array query*
 - *To update every item in an array you can use $[]* 

@@ -740,11 +740,10 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # Events
 > ## Finding what kind of event it is
-> **Hover over the input in the function**
+> **You can hover over the e that is in parenthesis (_In this case you will usually have to add React. to the front of the given type if using react_)**
 
 > ```typescript
-> onChange={(e) => {const input = e.currentTarget}}
-> // or try hovering in the onClick
+> onClick={(e) => {console.log(e.currentTarget)}}
 > ```
 
 > ## Specifying what the click is on
