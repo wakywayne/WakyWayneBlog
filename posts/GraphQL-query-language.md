@@ -486,7 +486,7 @@ fragment companyDetails on Company{
 
 4. You can have all of your types imported automatically using Apollo typesbuilder _example coming soon_
 
-# Building a Federated Super Graph
+# Building a Federated Super Graph!
 
 > A federated super graph is essentially one graphql api that is able to harvest the data of several other graphql api's (_known as subgraphs_). This means that you can have several different teams working independently on several different api's without ever having server downtime when making updates, ever having frontend teams needing to figure out what api or route they need to hit, and do all of this while reaping the benifits of horizontal scalling it is truely amazing!
 
