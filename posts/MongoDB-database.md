@@ -562,6 +562,13 @@ db.friends.aggregate([
 ```
 
 
+
+# Updating with aggregation 
+
+
+
+
+
 # Indexes
 *MongoDB creates an _id index for every collection by default_. An index is basically taking one field from every document and separating it from the original document so it can be queried faster*
 - **DURING THE CREATION OF THE INDEX THE COLLECTION WILL BE LOCKED see _background_ below to avoid this issue**
