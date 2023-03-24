@@ -12,7 +12,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ### You should always have a default image to use if something doesn't exist use that url path as the conditional This work much nicer than other solutions do with next if you use a favicon it seems to not work not sure what that is about
 
 ## Auth
-### You should use http only cookie it's an advantage of using NEXT [see auth](../AuthenticationSecurity/auth.md)
+### You should use http only cookie it's an advantage of using NEXT 
 
 ## Special rules
 --------------------

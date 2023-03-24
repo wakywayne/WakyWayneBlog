@@ -693,11 +693,11 @@ highlights: {$meta: 'searchHighlights'}
   - To use the near query you need a GeoSpacial index
 - *GeoSpacial Index*: db.places.createIndex({location: "2dsphere"})
 - Finding places in a grid
-  - db.places.find({location:{**$geoWithin**:{$geometry:{type:"Polygon", coordinates: [[ p1,p2,p3,p4,p1 ]]}}}})
+  - `db.places.find({location:{**$geoWithin**:{$geometry:{type:"Polygon", coordinates: [[ p1,p2,p3,p4,p1 ]]}}}})`
   - each p is a [long, lat] array
 -  Finding if a point intersects a polygon (*you would run the query in a collection of polygons where we pass in the point value*)
   - db.areas.find({area:{**$geoIntersects**:{$geometry:{type: "Point", coordinates:[-122.49089, 37.76992]}}}})
-  - The inverse query looks like this: *db.places.find({location:{$geoIntersects:{$geometry:{type: "Polygon", coordinates:[[ p1,p2,p3,p4,p1 ]]}}}})*
+  - `The inverse query looks like this: *db.places.find({location:{$geoIntersects:{$geometry:{type: "Polygon", coordinates:[[ p1,p2,p3,p4,p1 ]]}}}})*`
 - Another way to search for a radius around the user
   - db.places.find({location:{$geoWithin:{$centerSphere: [[ -122.46203, 37.77286], 1/6378.1]}}})
   - *The default unit is radians by dividing we converted to kilometers, to convert to miles use 3,963.2*
