@@ -3,7 +3,7 @@ title: "GraphQL"
 date: "September 22, 2022"
 excerpt: "GraphQL is an excellent way to make your database queries more efficient"
 cover_image: ""
-category: "FrameWorks"
+category: "ServerSide"
 author: "WayneCarl"
 author_image: "/images/wayneswildworldImages/waterfall.jpg"
 ---

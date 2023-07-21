@@ -3,7 +3,7 @@ title: "Strapi"
 date: "September 22, 2022"
 excerpt: "Strapi is an excellent headless cms great for any simple app you want to get off the ground quickly"
 cover_image: ""
-category: "FrameWorks"
+category: "ServerSide"
 author: "WayneCarl"
 author_image: "/images/wayneswildworldImages/waterfall.jpg"
 ---
