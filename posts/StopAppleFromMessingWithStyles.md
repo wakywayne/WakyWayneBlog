@@ -1,4 +1,3 @@
-
 ---
 title: "Stop apple from messing with styles"
 date: "June 21, 2023"
