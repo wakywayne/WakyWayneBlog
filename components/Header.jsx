@@ -13,7 +13,7 @@ export default function Header() {
                         <span className='ml-3 text-xl hover:text-green-500'>Home</span>
                     </a>
                 </Link>
-                <h3 className='self-stretch mb-4 text-xl font-medium text-black title-font md:mb-0'>
+                <h3 className='self-stretch mb-4 mt-3 text-xl font-medium text-black title-font md:mb-0 text-center order-1 md:order-none'>
                     {/* <Image src='/../public/myfavicon.ico' width={40} height={40} alt='logo' /> */}
                     WayneCarl Barker&apos;s Portfolio/ Blog
                 </h3>
