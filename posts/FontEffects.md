@@ -1,7 +1,7 @@
 ---
-title: 'Styling for a blockquote'
-date: 'September 22, 2022'
-excerpt: 'Use this for important paragraphs and quotes'
+title: 'Cool Font Effects'
+date: 'August 10, 2023'
+excerpt: 'Use this to spice up your pages fonts'
 cover_image: ''
 category: 'Styles'
 author: 'WayneCarl'
