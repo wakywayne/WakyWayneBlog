@@ -10,7 +10,7 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
 
 # axios
 
-# get request (*default*)
+## get request (*default*)
 
 ```javascript
 import axios from 'axios';

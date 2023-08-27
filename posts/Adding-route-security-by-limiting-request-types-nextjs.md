@@ -1,17 +1,19 @@
 ---
-title: 'Limiting request options in nextJS'
-date: 'September, 12, 2022'
-excerpt: 'By limiting req types you can add additional security to your app'
-cover_image: '/images/posts/img7.jpg'
-category: 'ServerSide'
-author: 'WayneCarl'
-author_image: '/images/wayneswildworldImages/waterfall.jpg'
+title: "Limiting request options in nextJS for added security"
+date: "September, 12, 2022"
+excerpt: "By limiting req types you can add additional security to your app"
+cover_image: "/images/posts/img7.jpg"
+category: "ServerSide"
+author: "WayneCarl"
+author_image: "/images/wayneswildworldImages/waterfall.jpg"
 ---
 
-# Data Fetching
+# Limiting request options in nextJS for added security and better response handling
+
 **You cannot use next export with api routes**
 **Use the standard req, res syntax in the api**
-- To allow or limit the kind of request you can use 
+
+To allow or limit the kind of request you can use, simply add this code to your api/ server file in you nextJS application (_These are the files in your /api folder_)
 
 ```javascript
             export default (req, res)=> {
@@ -23,3 +25,5 @@ author_image: '/images/wayneswildworldImages/waterfall.jpg'
                 }
             }
 ```
+
+**The above code makes it so that you can only make a GET request to the current route**
