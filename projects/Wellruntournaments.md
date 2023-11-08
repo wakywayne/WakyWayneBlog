@@ -1,7 +1,7 @@
 ---
 title: 'Wrestling Tournaments'
 date: 'March 25, 2022'
-excerpt: 'A fullstack application with a backend equipped with a frontend user interface'
+excerpt: 'A fullstack application with a backend user interface'
 cover_image: '/images/wellruntournamentsImages/wellrunNiceLookingMain.png'
 category: ''
 author: 'Well Run Tournaments Company'
