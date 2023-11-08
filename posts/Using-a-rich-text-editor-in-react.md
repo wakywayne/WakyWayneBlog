@@ -3,7 +3,7 @@ title: 'Implement a rich text editor on your website'
 date: 'September, 14, 2022'
 excerpt: 'A rich text editor allows people to style text before submitting'
 cover_image: '/images/posts/img5.jpg'
-category: 'Utilities'
+category: 'ClientSide'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

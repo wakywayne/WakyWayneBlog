@@ -3,7 +3,7 @@ title: "How to turn your web app into a PWA"
 date: "September, 12, 2022"
 excerpt: "Companies like twitter understand the value of making there website a pwa learn more about this topic here"
 cover_image: "/images/posts/img7.jpg"
-category: "Utilities"
+category: "ClientSide"
 author: "WayneCarl"
 author_image: "/images/wayneswildworldImages/waterfall.jpg"
 ---
@@ -157,7 +157,7 @@ useEffect(() => {
       // You may want to customize the UI prompt accordingly.
       if (
         confirm(
-          "A newer version of this web app is available, reload to update?"
+          "A newer version of this web app is available, reload to update?",
         )
       ) {
         wb.addEventListener("controlling", (event) => {
@@ -168,7 +168,7 @@ useEffect(() => {
         wb.messageSkipWaiting();
       } else {
         console.log(
-          "User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time."
+          "User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.",
         );
       }
     };
@@ -252,7 +252,7 @@ self.addEventListener("install", (evt) => {
     caches.open(staticCacheName).then((cache) => {
       //console.log("caching shell assets");
       cache.addAll(assets);
-    })
+    }),
   );
 });
 
@@ -265,9 +265,9 @@ self.addEventListener("activate", (evt) => {
       return Promise.all(
         keys
           .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
-          .map((key) => caches.delete(key))
+          .map((key) => caches.delete(key)),
       );
-    })
+    }),
   );
 });
 
@@ -299,7 +299,7 @@ self.addEventListener("fetch", (evt) => {
           ) {
             return caches.match("/offline.html");
           }
-        })
+        }),
     );
   }
 });
@@ -319,7 +319,7 @@ self.addEventListener("push", (event) => {
 
   event
     .waitUntil(
-      self.registration.showNotification(notificationData.title, options)
+      self.registration.showNotification(notificationData.title, options),
     )
     .then(() => {
       alert("Notification shown");
@@ -342,7 +342,7 @@ self.addEventListener("notificationclick", (event) => {
 ```
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

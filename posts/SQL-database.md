@@ -3,7 +3,7 @@ title: 'SQL'
 date: 'September 22, 2022'
 excerpt: 'SQL is the gold standard in databases should be every noobies first database'
 cover_image: ''
-category: 'FrameWorks'
+category: 'Database'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

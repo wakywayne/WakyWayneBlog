@@ -3,7 +3,7 @@ title: 'Unbounce'
 date: 'September, 14, 2022'
 excerpt: 'This article will show you how to implement bootstrap in Unbounce'
 cover_image: '/images/posts/img7.jpg'
-category: 'Utilities'
+category: 'ClientSide'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

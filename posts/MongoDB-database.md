@@ -3,7 +3,7 @@ title: 'MongoDB'
 date: 'September 22, 2022'
 excerpt: "MongoDB is an excellent noSQL database it's a must learn"
 cover_image: ''
-category: 'FrameWorks'
+category: 'Database'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

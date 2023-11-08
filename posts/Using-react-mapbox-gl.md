@@ -3,7 +3,7 @@ title: 'Create a custom interactive map'
 date: 'September, 14, 2022'
 excerpt: 'This will show you how to use react-map-gl'
 cover_image: '/images/posts/img7.jpg'
-category: 'Utilities'
+category: 'ClientSide'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---

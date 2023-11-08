@@ -3,7 +3,7 @@ title: "Add protection when dangerously setting html in React"
 date: "September, 14, 2022"
 excerpt: "This will show you how to use one of the most under used npm packages out there"
 cover_image: "/images/posts/img7.jpg"
-category: "Utilities"
+category: "ClientSide"
 author: "WayneCarl"
 author_image: "/images/wayneswildworldImages/waterfall.jpg"
 ---

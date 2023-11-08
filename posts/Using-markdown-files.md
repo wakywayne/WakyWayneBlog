@@ -3,7 +3,7 @@ title: 'Build a site with markdown'
 date: 'September, 14, 2022'
 excerpt: 'This will show you the basics of what I used to make this website'
 cover_image: '/images/posts/img7.jpg'
-category: 'Utilities'
+category: 'ClientSide'
 author: 'WayneCarl'
 author_image: '/images/wayneswildworldImages/waterfall.jpg'
 ---
