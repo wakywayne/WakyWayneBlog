@@ -15,7 +15,7 @@ export default function Home({ projects }) {
         ))}
       </div>
       <Link href='/blog'>
-        <a className='block w-full py-4 my-5 text-center text-blue-800 transition duration-500 border border-blue-500 rounded-md select-none ease hover:text-white hover:bg-green-700 focus:outline-none focus:shadow-outline'>
+        <a className='block w-full py-4 my-5 text-center text-blue-800 transition duration-500 underline rounded-md select-none ease hover:text-white hover:bg-green-700 focus:outline-none focus:shadow-outline'>
           Blog articles that I find useful
         </a>
       </Link>
